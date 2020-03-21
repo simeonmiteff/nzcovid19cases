@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func RenderCases(viewType string) (string, error) {
+func RenderCases(rawCases []*RawCase, viewType string) (string, error) {
 	validViewTypes := map[string]bool{
 		"csv":     true,
 		"json":    true,
@@ -15,11 +15,6 @@ func RenderCases(viewType string) (string, error) {
 	}
 	if !validViewTypes[viewType] {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
-	}
-
-	rawCases, err := Scrape()
-	if err != nil {
-		return "", err
 	}
 
 	normCases := make([]*NormalisedCase, len(rawCases))

@@ -40,11 +40,16 @@ func main() {
 		usage()
 	}
 
-	var err error
+	rawCases, err := nzcovid19cases.Scrape()
+	if err != nil {
+		_, _ = fmt.Fprintf(os.Stderr, "%v\n", err)
+		os.Exit(3)
+	}
+
 	var result string
 	switch dataType {
 	case "cases":
-		result, err = nzcovid19cases.RenderCases(viewType)
+		result, err = nzcovid19cases.RenderCases(rawCases, viewType)
 	}
 
 	if err != nil {

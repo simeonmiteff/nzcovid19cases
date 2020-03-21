@@ -5,7 +5,11 @@ import (
 )
 
 func main() {
-	_, err := nzcovid19cases.RenderCases("csv")
+	rawCases, err := nzcovid19cases.Scrape()
+	if err != nil {
+		panic(err)
+	}
+	_, err = nzcovid19cases.RenderCases(rawCases, "csv")
 	if err != nil {
 		panic(err)
 	}
