@@ -22,13 +22,29 @@ func RenderCases(viewType string) (string, error) {
 		return "", err
 	}
 
+	normCases := make([]*NormalisedCase, len(rawCases))
+	for i, cp := range rawCases {
+		var normCase NormalisedCase
+		err := normCase.FromRaw(cp)
+		if err != nil {
+			return "", fmt.Errorf("problem normalising case from line %v: %w", i, err)
+		}
+		normCases[i] = &normCase
+	}
+
 	var sb strings.Builder
 	switch viewType {
 	case "csv":
-		sb.WriteString(`"Case", "Location", "Age", "Gender", "Travel details"`)
-		for _, cp := range cases {
-			c := *cp
-			sb.WriteString(fmt.Sprintf(`"%v", "%v", "%v", "%v", "%v"`, c.Case, c.Location, c.Age, c.Gender, c.TravelDetails))
+		sb.WriteString(`"CaseNumber", "LocationName", "AgeValid", "OlderOrEqualToAge", "YoungerOrEqualToAge"` +
+			`,"Gender", "Travel details", "TravelDetailsUnstructured", "LocationCentrePointLongitude",` +
+			`"LocationCentrePointLatitude"`)
+		sb.WriteRune('\n')
+		for _, c := range normCases {
+			//fmt.Println("%v", c)
+			sb.WriteString(fmt.Sprintf(`"%v", "%v", "%v", "%v", "%v", "%v", "%v", "%v", "%v"`,
+				c.CaseNumber, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,
+				c.Age.YoungerOrEqualToAge, c.Gender, c.TravelDetailsUnstructured,
+				c.LocationCentrePoint.Point[0], c.LocationCentrePoint.Point[1]))
 			sb.WriteRune('\n')
 		}
 	case "json":
@@ -39,19 +55,16 @@ func RenderCases(viewType string) (string, error) {
 		sb.Write(b)
 	case "geojson":
 		fc := geojson.NewFeatureCollection()
-		for i, cp := range cases {
-			c := *cp
-			loc, err := GetLocation(c.Location)
-			if err != nil {
-				return "", fmt.Errorf("problem getting location for table line %v: %w", i, err)
-			}
+		for _, c := range normCases {
 			var feature geojson.Feature
-			feature.Geometry = loc
-			feature.SetProperty("Location", c.Location)
-			feature.SetProperty("Case", c.Case)
-			feature.SetProperty("Age", c.Age)
+			feature.Geometry = c.LocationCentrePoint
+			feature.SetProperty("LocationName", c.LocationName)
+			feature.SetProperty("CaseNumber", c.CaseNumber)
+			feature.SetProperty("AgeValid", c.Age.Valid)
+			feature.SetProperty("OlderOrEqualToAge", c.Age.OlderOrEqualToAge)
+			feature.SetProperty("YoungerOrEqualToAge", c.Age.YoungerOrEqualToAge)
 			feature.SetProperty("Gender", c.Gender)
-			feature.SetProperty("Travel details", c.TravelDetails)
+			feature.SetProperty("Travel details", c.TravelDetailsUnstructured)
 			fc.AddFeature(&feature)
 		}
 		b, err := fc.MarshalJSON()
