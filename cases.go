@@ -41,7 +41,7 @@ func RenderCases(viewType string) (string, error) {
 		sb.WriteRune('\n')
 		for _, c := range normCases {
 			//fmt.Println("%v", c)
-			sb.WriteString(fmt.Sprintf(`"%v", "%v", "%v", "%v", "%v", "%v", "%v", "%v", "%v"`,
+			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", %v, %v, "%v", "%v", %v, %v`,
 				c.CaseNumber, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,
 				c.Age.YoungerOrEqualToAge, c.Gender, c.TravelDetailsUnstructured,
 				c.LocationCentrePoint.Point[0], c.LocationCentrePoint.Point[1]))
