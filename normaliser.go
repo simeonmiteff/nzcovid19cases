@@ -39,6 +39,7 @@ var locations = map[string]*geojson.Geometry{
 	"Manawatu":          geojson.NewPointGeometry([]float64{175.4376, -39.7273}),
 	"Taupo":             geojson.NewPointGeometry([]float64{176.0702, -38.6857}),
 	"Wellington Region": geojson.NewPointGeometry([]float64{175.4376, -41.0299}),
+	"Otago":             geojson.NewPointGeometry([]float64{170.1548, -45.4791}),
 }
 
 var ageLookup = map[string]AgeRange{
