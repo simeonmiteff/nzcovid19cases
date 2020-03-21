@@ -19,7 +19,6 @@ Usage: %v <action>
 	os.Exit(1)
 }
 
-
 func main() {
 	if len(os.Args) < 2 {
 		usage()
@@ -32,11 +31,11 @@ func main() {
 	dataType := parts[0]
 	viewType := parts[1]
 
-	validDataTypes := map[string] bool {
+	validDataTypes := map[string]bool{
 		"cases": true,
 	}
 
-	if ! validDataTypes[dataType] {
+	if !validDataTypes[dataType] {
 		_, _ = fmt.Fprintf(os.Stderr, "Unknown data type specified\n")
 		usage()
 	}

@@ -8,16 +8,16 @@ import (
 )
 
 func RenderCases(viewType string) (string, error) {
-	validViewTypes := map[string] bool {
-		"csv": true,
-		"json": true,
+	validViewTypes := map[string]bool{
+		"csv":     true,
+		"json":    true,
 		"geojson": true,
 	}
-	if ! validViewTypes[viewType] {
+	if !validViewTypes[viewType] {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
 	}
 
-	cases, err := Scrape()
+	rawCases, err := Scrape()
 	if err != nil {
 		return "", err
 	}
@@ -32,7 +32,7 @@ func RenderCases(viewType string) (string, error) {
 			sb.WriteRune('\n')
 		}
 	case "json":
-		b, err := json.MarshalIndent(cases, "", "  ")
+		b, err := json.MarshalIndent(normCases, "", "  ")
 		if err != nil {
 			return "", err
 		}

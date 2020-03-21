@@ -2,7 +2,7 @@ package nzcovid19cases
 
 import "fmt"
 
-type InvalidUsageError struct{
+type InvalidUsageError struct {
 	Problem string
 }
 

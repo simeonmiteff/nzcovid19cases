@@ -7,10 +7,10 @@ import (
 )
 
 type RawCase struct {
-	Case int
-	Location string
-	Age string
-	Gender string
+	Case          int
+	Location      string
+	Age           string
+	Gender        string
 	TravelDetails string
 }
 
