@@ -23,7 +23,7 @@ var locations = map[string]*gj.Geometry{
 func GetLocation(location string) (*gj.Geometry, error) {
 	geometry, ok := locations[location]
 	if !ok {
-		return nil, fmt.Errorf("unknown location: %v", geometry)
+		return nil, fmt.Errorf("unknown location: %v", location)
 	}
 	return geometry, nil
 }
