@@ -17,4 +17,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	locations := nzcovid19cases.BuildLocations(normCases)
+	_, err = nzcovid19cases.RenderLocations(locations, "csv")
+	if err != nil {
+		panic(err)
+	}
 }

@@ -15,6 +15,9 @@ Usage: %v <action>
 		- cases/json
 		- cases/csv
 		- cases/geojson
+		- locations/json
+		- locations/csv
+		- locations/geojson
 `, os.Args[0])
 	os.Exit(1)
 }
@@ -38,6 +41,7 @@ func main() {
 
 	validDataTypes := map[string]bool{
 		"cases": true,
+		"locations": true,
 	}
 
 	if !validDataTypes[dataType] {
@@ -59,6 +63,9 @@ func main() {
 	switch dataType {
 	case "cases":
 		result, err = nzcovid19cases.RenderCases(normCases, viewType)
+	case "locations":
+		locations := nzcovid19cases.BuildLocations(normCases)
+		result, err = nzcovid19cases.RenderLocations(locations, viewType)
 	}
 
 	if err != nil {
