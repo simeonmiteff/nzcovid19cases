@@ -36,7 +36,7 @@ func RenderCases(viewType string) (string, error) {
 	switch viewType {
 	case "csv":
 		sb.WriteString(`"CaseNumber", "LocationName", "AgeValid", "OlderOrEqualToAge", "YoungerOrEqualToAge"` +
-			`,"Gender", "Travel details", "TravelDetailsUnstructured", "LocationCentrePointLongitude",` +
+			`,"Gender", "TravelDetailsUnstructured", "LocationCentrePointLongitude",` +
 			`"LocationCentrePointLatitude"`)
 		sb.WriteRune('\n')
 		for _, c := range normCases {
