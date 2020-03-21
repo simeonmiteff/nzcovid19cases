@@ -19,6 +19,7 @@ Usage: %v <action>
 	os.Exit(1)
 }
 
+
 func main() {
 	if len(os.Args) < 2 {
 		usage()
@@ -31,13 +32,20 @@ func main() {
 	dataType := parts[0]
 	viewType := parts[1]
 
+	validDataTypes := map[string] bool {
+		"cases": true,
+	}
+
+	if ! validDataTypes[dataType] {
+		_, _ = fmt.Fprintf(os.Stderr, "Unknown data type specified\n")
+		usage()
+	}
+
 	var err error
 	var result string
 	switch dataType {
 	case "cases":
 		result, err = nzcovid19cases.RenderCases(viewType)
-	default:
-		usage()
 	}
 
 	if err != nil {
