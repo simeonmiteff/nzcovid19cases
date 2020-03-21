@@ -83,7 +83,7 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	n.Gender = gender
 	n.CaseNumber = r.Case
 	n.LocationName = r.Location
-	n.TravelDetailsUnstructured = n.LocationName
+	n.TravelDetailsUnstructured = r.TravelDetails
 
 	return nil
 }
