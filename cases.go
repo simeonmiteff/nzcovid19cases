@@ -25,7 +25,6 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 			`"LocationCentrePointLatitude"`)
 		sb.WriteRune('\n')
 		for _, c := range normCases {
-			//fmt.Println("%v", c)
 			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", %v, %v, "%v", "%v", %v, %v`,
 				c.CaseNumber, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,
 				c.Age.YoungerOrEqualToAge, c.Gender, c.TravelDetailsUnstructured,
