@@ -88,3 +88,16 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 
 	return nil
 }
+
+func NormaliseCases(rawCases []*RawCase) ([]*NormalisedCase, error) {
+	normCases := make([]*NormalisedCase, len(rawCases))
+	for i, cp := range rawCases {
+		var normCase NormalisedCase
+		err := normCase.FromRaw(cp)
+		if err != nil {
+			return nil, fmt.Errorf("problem normalising case from line %v: %w", i, err)
+		}
+		normCases[i] = &normCase
+	}
+	return normCases, nil
+}

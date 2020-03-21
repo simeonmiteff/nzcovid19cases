@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func RenderCases(rawCases []*RawCase, viewType string) (string, error) {
+func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 	validViewTypes := map[string]bool{
 		"csv":     true,
 		"json":    true,
@@ -15,16 +15,6 @@ func RenderCases(rawCases []*RawCase, viewType string) (string, error) {
 	}
 	if !validViewTypes[viewType] {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
-	}
-
-	normCases := make([]*NormalisedCase, len(rawCases))
-	for i, cp := range rawCases {
-		var normCase NormalisedCase
-		err := normCase.FromRaw(cp)
-		if err != nil {
-			return "", fmt.Errorf("problem normalising case from line %v: %w", i, err)
-		}
-		normCases[i] = &normCase
 	}
 
 	var sb strings.Builder

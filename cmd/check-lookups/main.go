@@ -9,7 +9,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	_, err = nzcovid19cases.RenderCases(rawCases, "csv")
+	normCases, err := nzcovid19cases.NormaliseCases(rawCases)
+	if err != nil {
+		panic(err)
+	}
+	_, err = nzcovid19cases.RenderCases(normCases, "csv")
 	if err != nil {
 		panic(err)
 	}

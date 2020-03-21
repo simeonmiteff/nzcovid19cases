@@ -19,6 +19,11 @@ Usage: %v <action>
 	os.Exit(1)
 }
 
+func abort(err error, exitCode int) {
+	_, _ = fmt.Fprintf(os.Stderr, "%v\n", err)
+	os.Exit(exitCode)
+}
+
 func main() {
 	if len(os.Args) < 2 {
 		usage()
@@ -42,14 +47,18 @@ func main() {
 
 	rawCases, err := nzcovid19cases.Scrape()
 	if err != nil {
-		_, _ = fmt.Fprintf(os.Stderr, "%v\n", err)
-		os.Exit(3)
+		abort(err, 2)
+	}
+
+	normCases, err := nzcovid19cases.NormaliseCases(rawCases)
+	if err != nil {
+		abort(err, 3)
 	}
 
 	var result string
 	switch dataType {
 	case "cases":
-		result, err = nzcovid19cases.RenderCases(rawCases, viewType)
+		result, err = nzcovid19cases.RenderCases(normCases, viewType)
 	}
 
 	if err != nil {
@@ -58,8 +67,7 @@ func main() {
 			_, _ = fmt.Fprint(os.Stderr, invalidUsageError)
 			usage()
 		}
-		_, _ = fmt.Fprintf(os.Stderr, "%v\n", err)
-		os.Exit(2)
+		abort(err, 100)
 	}
 
 	fmt.Print(result)
