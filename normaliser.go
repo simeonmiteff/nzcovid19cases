@@ -44,6 +44,7 @@ var locations = map[string]*geojson.Geometry{
 	"Hamilton":          geojson.NewPointGeometry([]float64{175.2793, -37.7870}),
 	"Bay of Plenty":     geojson.NewPointGeometry([]float64{177.1423, -37.6893}),
 	"Coramandel":        geojson.NewPointGeometry([]float64{175.4981, -36.7613}), // Typo
+	"Wairarapa":         geojson.NewPointGeometry([]float64{175.6574, -40.9511}), // Masterton coordinates
 }
 
 var locationNames = map[string]string{
