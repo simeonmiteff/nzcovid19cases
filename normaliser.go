@@ -25,6 +25,7 @@ type NormalisedCase struct {
 var locations = map[string]*geojson.Geometry{
 	"Auckland":          geojson.NewPointGeometry([]float64{174.7633, -36.8485}),
 	"Canterbury":        geojson.NewPointGeometry([]float64{171.1637, -43.7542}),
+	"Dundedin":          geojson.NewPointGeometry([]float64{170.5028, -45.8788}), // Typo
 	"Dunedin":           geojson.NewPointGeometry([]float64{170.5028, -45.8788}),
 	"Hawkes Bay":        geojson.NewPointGeometry([]float64{176.7416, -39.1090}),
 	"Invercargill":      geojson.NewPointGeometry([]float64{168.3538, -46.4132}),
@@ -40,6 +41,9 @@ var locations = map[string]*geojson.Geometry{
 	"Taupo":             geojson.NewPointGeometry([]float64{176.0702, -38.6857}),
 	"Wellington Region": geojson.NewPointGeometry([]float64{175.4376, -41.0299}),
 	"Otago":             geojson.NewPointGeometry([]float64{170.1548, -45.4791}),
+	"Hamilton":          geojson.NewPointGeometry([]float64{175.2793, -37.7870}),
+	"Bay of Plenty":     geojson.NewPointGeometry([]float64{177.1423, -37.6893}),
+	"Coramandel":        geojson.NewPointGeometry([]float64{175.4981, -36.7613}),
 }
 
 var ageLookup = map[string]AgeRange{
