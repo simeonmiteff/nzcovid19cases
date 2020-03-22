@@ -27,7 +27,7 @@ var locations = map[string]*geojson.Geometry{
 	"Canterbury":        geojson.NewPointGeometry([]float64{171.1637, -43.7542}),
 	"Dundedin":          geojson.NewPointGeometry([]float64{170.5028, -45.8788}), // Typo
 	"Dunedin":           geojson.NewPointGeometry([]float64{170.5028, -45.8788}),
-	"Hawkes Bay":        geojson.NewPointGeometry([]float64{176.7416, -39.1090}),
+	"Hawkes Bay":        geojson.NewPointGeometry([]float64{176.7416, -39.1090}), // Typo
 	"Invercargill":      geojson.NewPointGeometry([]float64{168.3538, -46.4132}),
 	"Northland":         geojson.NewPointGeometry([]float64{173.7624, -35.5795}),
 	"Queenstown":        geojson.NewPointGeometry([]float64{168.6626, -45.0312}),
@@ -43,7 +43,13 @@ var locations = map[string]*geojson.Geometry{
 	"Otago":             geojson.NewPointGeometry([]float64{170.1548, -45.4791}),
 	"Hamilton":          geojson.NewPointGeometry([]float64{175.2793, -37.7870}),
 	"Bay of Plenty":     geojson.NewPointGeometry([]float64{177.1423, -37.6893}),
-	"Coramandel":        geojson.NewPointGeometry([]float64{175.4981, -36.7613}),
+	"Coramandel":        geojson.NewPointGeometry([]float64{175.4981, -36.7613}), // Typo
+}
+
+var locationNames = map[string]string{
+	"Dundedin":          "Dunedin",
+	"Hawkes Bay":        "Hawke's Bay",
+	"Coramandel":        "Coromandel",
 }
 
 var ageLookup = map[string]AgeRange{
@@ -87,7 +93,12 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 
 	n.Gender = gender
 	n.CaseNumber = r.Case
-	n.LocationName = r.Location
+	correctedName, ok := locationNames[r.Location]
+	if ok {
+		n.LocationName = correctedName
+	} else {
+		n.LocationName = r.Location
+	}
 	n.TravelDetailsUnstructured = r.TravelDetails
 
 	return nil
