@@ -15,12 +15,8 @@ type RawCase struct {
 	TravelDetails string
 }
 
-func parseRow(root soup.Root) (RawCase, error) {
-	cols := root.FindAll("td")
+func parseRow(cols []soup.Root) (RawCase, error) {
 	var c RawCase
-	if len(cols) != 5 {
-		return c, fmt.Errorf("row has %v columns, not 5", len(cols))
-	}
 	caseNum, err := strconv.Atoi(cols[0].Text())
 	if err != nil {
 		return c, fmt.Errorf("failed to convert %v to case number: %w", cols[0].Text(), err)
@@ -40,15 +36,24 @@ func ScrapeCases() ([]*RawCase, error) {
 	}
 	doc := soup.HTMLParse(resp)
 	rows := doc.Find("table", "class", "table-style-two").FindAll("tr")
-	cases := make([]*RawCase, len(rows)-1)
+	var cases []*RawCase
 
 	// Note: slice starting at 1, skipping the header
 	for i, row := range rows[1:] {
-		c, err := parseRow(row)
+		cols := row.FindAll("td")
+		// This deals with the colspan=5 row that appeared
+		if len(cols) == 1 {
+			continue
+		}
+		if len(cols) != 5 {
+			return cases, fmt.Errorf("row has %v columns, not 5", len(cols))
+		}
+		c, err := parseRow(cols)
 		if err != nil {
 			return nil, fmt.Errorf("problem parsing row %v from html table: %w", i, err)
+		} else {
+			cases = append(cases, &c)
 		}
-		cases[i] = &c
 	}
 	return cases, nil
 }
