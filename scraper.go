@@ -64,7 +64,7 @@ func ScrapeLevel() (int, string, error) {
 	// Note: slice starting at 1, skipping the header
 	for _, h := range headings {
 		txt := h.Text()
-		if strings.Contains(txt, "Current alert level") {
+		if strings.Contains(strings.ToLower(txt), "current alert level") {
 			parts := strings.SplitN(txt, ":", 2)
 			if len(parts) != 2 {
 				return 0, "", fmt.Errorf("heading does not split as expected: %v", txt)
