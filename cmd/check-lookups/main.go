@@ -19,6 +19,11 @@ func main() {
 	}
 	locations := nzcovid19cases.BuildLocations(normCases)
 	_, err = nzcovid19cases.RenderLocations(locations, "csv")
+	levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
+	if err != nil {
+		panic(err)
+	}
+	_, err = nzcovid19cases.RenderLevels(levelInt, levelString, "json")
 	if err != nil {
 		panic(err)
 	}
