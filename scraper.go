@@ -3,8 +3,8 @@ package nzcovid19cases
 import (
 	"fmt"
 	"github.com/anaskhan96/soup"
+	"regexp"
 	"strconv"
-	"strings"
 )
 
 type RawCase struct {
@@ -58,34 +58,35 @@ func ScrapeCases() ([]*RawCase, error) {
 	return cases, nil
 }
 
+var re = regexp.MustCompile(`(?m)Level (\d)`)
+
 func ScrapeLevel() (int, string, error) {
 	resp, err := soup.Get("https://covid19.govt.nz/government-actions/covid-19-alert-system")
 	if err != nil {
 		return 0, "", err
 	}
 	doc := soup.HTMLParse(resp)
-	headings := doc.FindAll("h2")
-
-	// Note: slice starting at 1, skipping the header
-	for _, h := range headings {
-		txt := h.Text()
-		if strings.Contains(strings.ToLower(txt), "current alert level") {
-			parts := strings.SplitN(txt, ":", 2)
-			if len(parts) != 2 {
-				return 0, "", fmt.Errorf("heading does not split as expected: %v", txt)
-			}
-			words := strings.SplitN(parts[0], " ", 4)
-			if len(words) != 4 {
-				return 0, "", fmt.Errorf("heading prefix does not split as expected: %v", parts[0])
-			}
-			levelString := words[3]
-			levelInt, err := strconv.Atoi(levelString)
-			if err != nil {
-				return 0, "", fmt.Errorf("could not convert level (%v) to int: %w", levelString, err)
-			}
-			levelName := parts[1]
-			return levelInt, levelName, nil
-		}
+	div := doc.Find("div", "class", "hero-statement")
+	if div.Error != nil {
+		return 0, "", fmt.Errorf("could not find div")
 	}
-	return 0, "", fmt.Errorf("no headings found")
+
+	matches := re.FindStringSubmatch(div.Text())
+	if len(matches) != 2 {
+		return 0, "", fmt.Errorf("expected two match elements")
+	}
+
+	levelString := matches[1]
+
+	levelInt, err := strconv.Atoi(levelString)
+	if err != nil {
+		return 0, "", fmt.Errorf("could not convert level (%v) to int: %w", levelString, err)
+	}
+
+	levelName, ok := levelLoopup[levelInt]
+	if !ok {
+		return 0, "", fmt.Errorf("could not look up level name from level (%v) : %w", levelInt, err)
+	}
+
+	return levelInt, levelName, nil
 }

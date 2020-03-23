@@ -82,6 +82,13 @@ var genderLookup = map[string]string{
 	"":      "Unknown or undisclosed",
 }
 
+var levelLoopup = map[int]string {
+	1:"Prepare",
+	2:"Reduce",
+	3:"Restrict",
+	4:"Eliminate",
+}
+
 func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	ageRange, ok := ageLookup[strings.TrimSpace(r.Age)]
 	if !ok {
