@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/anaskhan96/soup"
 	"strconv"
+	"strings"
 )
 
 type RawCase struct {
@@ -32,7 +33,7 @@ func parseRow(root soup.Root) (RawCase, error) {
 	return c, nil
 }
 
-func Scrape() ([]*RawCase, error) {
+func ScrapeCases() ([]*RawCase, error) {
 	resp, err := soup.Get("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-cases")
 	if err != nil {
 		return nil, err
@@ -50,4 +51,36 @@ func Scrape() ([]*RawCase, error) {
 		cases[i] = &c
 	}
 	return cases, nil
+}
+
+func ScrapeLevel() (int, string, error) {
+	resp, err := soup.Get("https://covid19.govt.nz/government-actions/covid-19-alert-system")
+	if err != nil {
+		return 0, "", err
+	}
+	doc := soup.HTMLParse(resp)
+	headings := doc.FindAll("h2")
+
+	// Note: slice starting at 1, skipping the header
+	for _, h := range headings {
+		txt := h.Text()
+		if strings.Contains(txt, "Current alert level") {
+			parts := strings.SplitN(txt, ":", 2)
+			if len(parts) != 2 {
+				return 0, "", fmt.Errorf("heading does not split as expected: %v", txt)
+			}
+			words := strings.SplitN(parts[0], " ", 4)
+			if len(words) != 4 {
+				return 0, "", fmt.Errorf("heading prefix does not split as expected: %v", parts[0])
+			}
+			levelString := words[3]
+			levelInt, err := strconv.Atoi(levelString)
+			if err != nil {
+				return 0, "", fmt.Errorf("could not convert level (%v) to int: %w", levelString, err)
+			}
+			levelName := parts[1]
+			return levelInt, levelName, nil
+		}
+	}
+	return 0, "", fmt.Errorf("no headings found")
 }

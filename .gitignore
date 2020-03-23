@@ -3,3 +3,4 @@
 cmd/nzcovid19-cli/nzcovid19-cli
 cmd/check-lookups/deploy.sh
 cmd/check-lookups/check-lookups
+cmd/level-scrape/level-scrape

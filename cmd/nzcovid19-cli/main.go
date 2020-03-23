@@ -49,7 +49,7 @@ func main() {
 		usage()
 	}
 
-	rawCases, err := nzcovid19cases.Scrape()
+	rawCases, err := nzcovid19cases.ScrapeCases()
 	if err != nil {
 		abort(err, 2)
 	}
@@ -66,6 +66,12 @@ func main() {
 	case "locations":
 		locations := nzcovid19cases.BuildLocations(normCases)
 		result, err = nzcovid19cases.RenderLocations(locations, viewType)
+	//case "level"
+	//	levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
+	//	if err != nil {
+	//		abort(err, 4)
+	//	}
+
 	}
 
 	if err != nil {

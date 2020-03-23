@@ -3,7 +3,7 @@ package nzcovid19cases
 import "testing"
 
 func TestScrape(t *testing.T) {
-	r, err := Scrape()
+	r, err := ScrapeCases()
 	if err != nil {
 		t.Error(err)
 	}

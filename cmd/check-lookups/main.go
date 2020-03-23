@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	rawCases, err := nzcovid19cases.Scrape()
+	rawCases, err := nzcovid19cases.ScrapeCases()
 	if err != nil {
 		panic(err)
 	}
