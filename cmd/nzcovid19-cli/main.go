@@ -18,6 +18,7 @@ Usage: %v <action>
 		- locations/json
 		- locations/csv
 		- locations/geojson
+		- alertlevel/json
 `, os.Args[0])
 	os.Exit(1)
 }
@@ -42,6 +43,7 @@ func main() {
 	validDataTypes := map[string]bool{
 		"cases": true,
 		"locations": true,
+		"alertlevel": true,
 	}
 
 	if !validDataTypes[dataType] {
@@ -66,12 +68,15 @@ func main() {
 	case "locations":
 		locations := nzcovid19cases.BuildLocations(normCases)
 		result, err = nzcovid19cases.RenderLocations(locations, viewType)
-	//case "level"
-	//	levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
-	//	if err != nil {
-	//		abort(err, 4)
-	//	}
-
+	case "alertlevel":
+		levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
+		if err != nil {
+			abort(err, 4)
+		}
+		result, err = nzcovid19cases.RenderLevels(levelInt, levelString, viewType)
+		if err != nil {
+			abort(err, 5)
+		}
 	}
 
 	if err != nil {
