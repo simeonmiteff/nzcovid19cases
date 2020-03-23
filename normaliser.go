@@ -47,6 +47,9 @@ var locations = map[string]*geojson.Geometry{
 	"Wairarapa":         geojson.NewPointGeometry([]float64{175.6574, -40.9511}), // Masterton coordinates
 	"Marlborough":       geojson.NewPointGeometry([]float64{173.4217, -41.5727}),
 	"Tasman":            geojson.NewPointGeometry([]float64{172.7347, -41.2122}),
+	"Upper Hutt":        geojson.NewPointGeometry([]float64{175.0708, -41.1244}),
+	"Kapiti Coast":      geojson.NewPointGeometry([]float64{175.3136, -40.8233}),
+	//"":            geojson.NewPointGeometry([]float64{, -}),
 }
 
 var locationNames = map[string]string{
