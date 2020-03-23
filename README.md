@@ -1,7 +1,7 @@
 # NZ COVID-19 cases scraper
 
 This code is intended to scrape the New Zealand Ministry Of Health COVID-19 [case page](https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-cases)
-and the NZ government COVID-19 alert level from [this page](https://covid19.govt.nz/government-actions/covid-19-alert-system) and render the data in various formats suitable for mapping, visualisation and analysis.
+and the NZ government COVID-19 alert level from [this page](https://covid19.govt.nz/government-actions/covid-19-alert-level/) and render the data in various formats suitable for mapping, visualisation and analysis.
 
 Use this with caution - the NZ government may change their page and break the scraper at any time.
 

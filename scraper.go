@@ -61,7 +61,7 @@ func ScrapeCases() ([]*RawCase, error) {
 var re = regexp.MustCompile(`(?m)Level (\d)`)
 
 func ScrapeLevel() (int, string, error) {
-	resp, err := soup.Get("https://covid19.govt.nz/government-actions/covid-19-alert-system")
+	resp, err := soup.Get("https://covid19.govt.nz/government-actions/covid-19-alert-level")
 	if err != nil {
 		return 0, "", err
 	}
