@@ -61,6 +61,11 @@ func main() {
 		abort(err, 3)
 	}
 
+	levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
+	if err != nil {
+		abort(err, 4)
+	}
+
 	var result string
 	switch dataType {
 	case "cases":
@@ -69,14 +74,7 @@ func main() {
 		locations := nzcovid19cases.BuildLocations(normCases)
 		result, err = nzcovid19cases.RenderLocations(locations, viewType)
 	case "alertlevel":
-		levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
-		if err != nil {
-			abort(err, 4)
-		}
 		result, err = nzcovid19cases.RenderLevels(levelInt, levelString, viewType)
-		if err != nil {
-			abort(err, 5)
-		}
 	}
 
 	if err != nil {
