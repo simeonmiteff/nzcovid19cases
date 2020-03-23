@@ -45,6 +45,8 @@ var locations = map[string]*geojson.Geometry{
 	"Bay of Plenty":     geojson.NewPointGeometry([]float64{177.1423, -37.6893}),
 	"Coramandel":        geojson.NewPointGeometry([]float64{175.4981, -36.7613}), // Typo
 	"Wairarapa":         geojson.NewPointGeometry([]float64{175.6574, -40.9511}), // Masterton coordinates
+	"Marlborough":       geojson.NewPointGeometry([]float64{173.4217, -41.5727}),
+	"Tasman":            geojson.NewPointGeometry([]float64{172.7347, -41.2122}),
 }
 
 var locationNames = map[string]string{
@@ -54,6 +56,7 @@ var locationNames = map[string]string{
 }
 
 var ageLookup = map[string]AgeRange{
+	"Child": {Valid: true, OlderOrEqualToAge: 0, YoungerOrEqualToAge: 12},
 	"Teens": {Valid: true, OlderOrEqualToAge: 13, YoungerOrEqualToAge: 19}, // Does the MOH use 13-19?
 	"20s":   {Valid: true, OlderOrEqualToAge: 20, YoungerOrEqualToAge: 29},
 	"30s":   {Valid: true, OlderOrEqualToAge: 30, YoungerOrEqualToAge: 39},
