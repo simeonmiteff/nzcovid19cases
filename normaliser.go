@@ -21,6 +21,7 @@ type NormalisedCase struct {
 	Age                       AgeRange
 	Gender                    string
 	TravelDetailsUnstructured string
+	CaseType				  string
 }
 
 var locations = map[string]*geojson.Geometry{
@@ -81,11 +82,12 @@ var ageLookup = map[string]AgeRange{
 }
 
 var genderLookup = map[string]string{
-	"F":      "Female",
-	"Female": "Female",
-	"M":      "Male",
-	"Male":   "Male",
-	"":      "Unknown or undisclosed",
+	"F":      			"Female",
+	"Female": 			"Female",
+	"M":      			"Male",
+	"Male":   			"Male",
+	"":      			"Unknown or undisclosed",
+	"Not provided":     "Unknown or undisclosed",
 }
 
 var levelLoopup = map[int]string {
@@ -127,6 +129,7 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 
 	n.Gender = gender
 	n.CaseNumber = r.Case
+	n.CaseType = r.CaseType
 
 	n.TravelDetailsUnstructured = r.TravelDetails
 

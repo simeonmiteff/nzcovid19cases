@@ -15,6 +15,7 @@ type RawCase struct {
 	Age           string
 	Gender        string
 	TravelDetails string
+	CaseType	  string
 }
 
 type CaseStats struct {
@@ -56,7 +57,12 @@ func ScrapeCases() ([]*RawCase, CaseStats, error) {
 		return nil, cS, err
 	}
 	doc := soup.HTMLParse(resp)
-	rows := doc.Find("table", "class", "table-style-two").FindAll("tr")
+	tables := doc.FindAll("table", "class", "table-style-two")
+	if len(tables) != 2 {
+		return nil, cS, fmt.Errorf("found %v tables, expecting 2", len(tables))
+	}
+
+	rows := tables[0].FindAll("tr")
 	var cases []*RawCase
 
 	// Note: slice starting at 1, skipping the header
@@ -67,19 +73,39 @@ func ScrapeCases() ([]*RawCase, CaseStats, error) {
 			continue
 		}
 		if len(cols) != 5 {
-			return cases, cS, fmt.Errorf("row has %v columns, not 5", len(cols))
+			return nil, cS, fmt.Errorf("table 1 row has %v columns, not 5", len(cols))
 		}
 		c, err := parseRow(cols)
 		if err != nil {
-			return nil, cS, fmt.Errorf("problem parsing row %v from html table: %w", i, err)
+			return nil, cS, fmt.Errorf("table 1 problem parsing row %v from html table: %w", i, err)
 		} else {
+			c.CaseType = "confirmed"
+			cases = append(cases, &c)
+		}
+	}
+
+	rows = tables[1].FindAll("tr")
+	for i, row := range rows[1:] {
+		cols := row.FindAll("td")
+		// This deals with the colspan=5 row that appeared
+		if len(cols) == 1 {
+			continue
+		}
+		if len(cols) != 5 {
+			return nil, cS, fmt.Errorf("table 2 row has %v columns, not 5", len(cols))
+		}
+		c, err := parseRow(cols)
+		if err != nil {
+			return nil, cS, fmt.Errorf("table 2 problem parsing row %v from html table: %w", i, err)
+		} else {
+			c.CaseType = "probable"
 			cases = append(cases, &c)
 		}
 	}
 
 	stats := doc.Find("div", "property", "content:encoded").FindAll("li")
 	if len(stats) != 3 {
-		return cases, cS, fmt.Errorf("stats UL has %v LI, not 3", len(stats))
+		return nil, cS, fmt.Errorf("stats UL has %v LI, not 3", len(stats))
 	}
 
 	cS.Confirmed, err = parseStat(stats[0])
@@ -113,13 +139,14 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 	case "csv":
 		sb.WriteString(`"CaseNumber", "LocationName", "AgeValid", "OlderOrEqualToAge", "YoungerOrEqualToAge"` +
 			`,"Gender", "TravelDetailsUnstructured", "LocationCentrePointLongitude",` +
-			`"LocationCentrePointLatitude"`)
+			`"LocationCentrePointLatitude", "CaseType"`)
 		sb.WriteRune('\n')
 		for _, c := range normCases {
-			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", %v, %v, "%v", "%v", %v, %v`,
+			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", %v, %v, "%v", "%v", %v, %v, "%v"`,
 				c.CaseNumber, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,
 				c.Age.YoungerOrEqualToAge, c.Gender, c.TravelDetailsUnstructured,
-				c.LocationCentrePoint.Point[0], c.LocationCentrePoint.Point[1]))
+				c.LocationCentrePoint.Point[0], c.LocationCentrePoint.Point[1],
+				c.CaseType))
 			sb.WriteRune('\n')
 		}
 	case "json":
@@ -140,6 +167,7 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 			feature.SetProperty("YoungerOrEqualToAge", c.Age.YoungerOrEqualToAge)
 			feature.SetProperty("Gender", c.Gender)
 			feature.SetProperty("Travel details", c.TravelDetailsUnstructured)
+			feature.SetProperty("CaseType", c.CaseType)
 			fc.AddFeature(&feature)
 		}
 		b, err := fc.MarshalJSON()
