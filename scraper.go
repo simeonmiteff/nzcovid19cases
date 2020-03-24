@@ -92,9 +92,9 @@ func ScrapeLevel() (int, string, error) {
 	return levelInt, levelName, nil
 }
 
-func ScrapeGrants() (GrantsSummary, GrantRegions, error) {
+func ScrapeGrants() (GrantsSummary, GrantsRegions, error) {
 	var gS GrantsSummary
-	var gR GrantRegions
+	var gR GrantsRegions
 
 	resp, err := soup.Get("https://www.msd.govt.nz/about-msd-and-our-work/newsroom/2020/covid-19/covid-19-data.html")
 	if err != nil {

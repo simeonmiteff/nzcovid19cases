@@ -12,7 +12,7 @@ type GrantsSummary struct {
 	SumGrantAmount int
 }
 
-type GrantRegions struct {
+type GrantsRegions struct {
 	Auckland int
 	EastCoast int
 	BayOfPlenty int
@@ -25,17 +25,20 @@ type GrantRegions struct {
 	Total int
 }
 
-func RenderGrants(gS GrantsSummary, gR GrantRegions, viewType string) (string, error) {
+type Grants struct {
+	Summary GrantsSummary
+	Regions GrantsRegions
+}
+
+func RenderGrants(gS GrantsSummary, gR GrantsRegions, viewType string) (string, error) {
 	var sb strings.Builder
 	if viewType != "json" {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
 	}
-	b, err := json.MarshalIndent(gS, "", "  ")
-	if err != nil {
-		return "", err
-	}
-	sb.Write(b)
-	b, err = json.MarshalIndent(gR, "", "  ")
+	b, err := json.MarshalIndent(Grants{
+		Summary: gS,
+		Regions: gR,
+	}, "", "  ")
 	if err != nil {
 		return "", err
 	}
