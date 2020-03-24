@@ -32,6 +32,7 @@ Usage: ./nzcovid19-cli <action>
                 - locations/geojson
                 - alertlevel/json
                 - grants/json
+		        - casestats/json
 ```
 
 ## Notes about the data
