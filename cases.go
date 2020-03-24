@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/anaskhan96/soup"
 	geojson "github.com/paulmach/go.geojson"
-	"os"
 	"strconv"
 	"strings"
 )
@@ -38,10 +37,23 @@ func parseRow(cols []soup.Root) (RawCase, error) {
 	return c, nil
 }
 
-func ScrapeCases() ([]*RawCase, error) {
+func parseStat(stat soup.Root) (int, error) {
+	parts := strings.Split(stat.Text(), " ")
+	if (len(parts)) < 2 {
+		return 0, fmt.Errorf("sentence has %v words, which is too few", len(parts))
+	}
+	num, err := strconv.Atoi(parts[len(parts)-1])
+	if err != nil {
+		return 0, fmt.Errorf("failed to convert %v to number: %w", parts[len(parts)-1], err)
+	}
+	return num, nil
+}
+
+func ScrapeCases() ([]*RawCase, CaseStats, error) {
+	var cS CaseStats
 	resp, err := soup.Get("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-cases")
 	if err != nil {
-		return nil, err
+		return nil, cS, err
 	}
 	doc := soup.HTMLParse(resp)
 	rows := doc.Find("table", "class", "table-style-two").FindAll("tr")
@@ -55,27 +67,35 @@ func ScrapeCases() ([]*RawCase, error) {
 			continue
 		}
 		if len(cols) != 5 {
-			return cases, fmt.Errorf("row has %v columns, not 5", len(cols))
+			return cases, cS, fmt.Errorf("row has %v columns, not 5", len(cols))
 		}
 		c, err := parseRow(cols)
 		if err != nil {
-			return nil, fmt.Errorf("problem parsing row %v from html table: %w", i, err)
+			return nil, cS, fmt.Errorf("problem parsing row %v from html table: %w", i, err)
 		} else {
 			cases = append(cases, &c)
 		}
 	}
 
 	stats := doc.Find("div", "property", "content:encoded").FindAll("li")
-
-	for i, stat := range stats {
-		parts := strings.Split(stat.Text(), " ")
-		fmt.Println(i, parts[len(parts)-1])
+	if len(stats) != 3 {
+		return cases, cS, fmt.Errorf("stats UL has %v LI, not 3", len(stats))
 	}
 
-	os.Exit(0)
+	cS.Confirmed, err = parseStat(stats[0])
+	if err != nil {
+		return nil, cS, fmt.Errorf("problem parsing confirmed cases %w", err)
+	}
+	cS.Recovered, err = parseStat(stats[1])
+	if err != nil {
+		return nil, cS, fmt.Errorf("problem parsing recovered cases %w", err)
+	}
+	cS.CommunityTransmission, err = parseStat(stats[2])
+	if err != nil {
+		return nil, cS, fmt.Errorf("problem parsing community transmission cases %w", err)
+	}
 
-
-	return cases, nil
+	return cases, cS, nil
 }
 
 func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
@@ -129,5 +149,18 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 		sb.Write(b)
 		sb.WriteRune('\n')
 	}
+	return sb.String(), nil
+}
+
+func RenderCaseStats(cS CaseStats, viewType string) (string, error) {
+	var sb strings.Builder
+	if viewType != "json" {
+		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
+	}
+	b, err := json.MarshalIndent(cS, "", "  ")
+	if err != nil {
+		return "", err
+	}
+	sb.Write(b)
 	return sb.String(), nil
 }

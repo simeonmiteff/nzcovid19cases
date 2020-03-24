@@ -43,6 +43,7 @@ func main() {
 
 	validDataTypes := map[string]bool{
 		"cases": true,
+		"casestats": true,
 		"locations": true,
 		"alertlevel": true,
 		"grants": true,
@@ -53,7 +54,7 @@ func main() {
 		usage()
 	}
 
-	rawCases, err := nzcovid19cases.ScrapeCases()
+	rawCases, caseStats, err := nzcovid19cases.ScrapeCases()
 	if err != nil {
 		abort(err, 2)
 	}
@@ -84,6 +85,8 @@ func main() {
 		result, err = nzcovid19cases.RenderLevels(levelInt, levelString, viewType)
 	case "grants":
 		result, err = nzcovid19cases.RenderGrants(gS, gR, viewType)
+	case "casestats":
+		result, err = nzcovid19cases.RenderCaseStats(caseStats, "json")
 	}
 
 	if err != nil {
