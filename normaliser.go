@@ -3,6 +3,7 @@ package nzcovid19cases
 import (
 	"fmt"
 	geojson "github.com/paulmach/go.geojson"
+	"strconv"
 	"strings"
 )
 
@@ -28,6 +29,7 @@ var locations = map[string]*geojson.Geometry{
 	"Dundedin":          geojson.NewPointGeometry([]float64{170.5028, -45.8788}), // Typo
 	"Dunedin":           geojson.NewPointGeometry([]float64{170.5028, -45.8788}),
 	"Hawkes Bay":        geojson.NewPointGeometry([]float64{176.7416, -39.1090}), // Typo
+	"Hawke’s Bay":       geojson.NewPointGeometry([]float64{176.7416, -39.1090}),
 	"Invercargill":      geojson.NewPointGeometry([]float64{168.3538, -46.4132}),
 	"Northland":         geojson.NewPointGeometry([]float64{173.7624, -35.5795}),
 	"Queenstown":        geojson.NewPointGeometry([]float64{168.6626, -45.0312}),
@@ -49,6 +51,10 @@ var locations = map[string]*geojson.Geometry{
 	"Tasman":            geojson.NewPointGeometry([]float64{172.7347, -41.2122}),
 	"Upper Hutt":        geojson.NewPointGeometry([]float64{175.0708, -41.1244}),
 	"Kapiti Coast":      geojson.NewPointGeometry([]float64{175.3136, -40.8233}),
+	"Waitemata":         geojson.NewPointGeometry([]float64{174.5222, -36.7423}), // Auckland region?
+	"New Plymouth":      geojson.NewPointGeometry([]float64{174.0752, -39.0556}),
+	"Christchurch":      geojson.NewPointGeometry([]float64{172.6362, -43.5321}),
+	"Waitaki":           geojson.NewPointGeometry([]float64{170.6015, -44.9874}),
 	//"":            geojson.NewPointGeometry([]float64{, -}),
 }
 
@@ -92,7 +98,12 @@ var levelLoopup = map[int]string {
 func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	ageRange, ok := ageLookup[strings.TrimSpace(r.Age)]
 	if !ok {
-		return fmt.Errorf("age string \"%v\" not found in lookup table", r.Age)
+		exactAge, err := strconv.Atoi(r.Age)
+		if err == nil {
+			ageRange = AgeRange{Valid: true, OlderOrEqualToAge: exactAge, YoungerOrEqualToAge: exactAge}
+		} else {
+			return fmt.Errorf("age string \"%v\" not found in lookup table", r.Age)
+		}
 	}
 	n.Age = ageRange
 	gender, ok := genderLookup[strings.TrimSpace(r.Gender)]
