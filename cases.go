@@ -20,6 +20,8 @@ type RawCase struct {
 
 type CaseStats struct {
 	Confirmed				int
+	Probable				int
+	Total					int
 	Recovered				int
 	CommunityTransmission	int
 }
@@ -104,19 +106,27 @@ func ScrapeCases() ([]*RawCase, CaseStats, error) {
 	}
 
 	stats := doc.Find("div", "property", "content:encoded").FindAll("li")
-	if len(stats) != 3 {
-		return nil, cS, fmt.Errorf("stats UL has %v LI, not 3", len(stats))
+	if len(stats) != 5 {
+		return nil, cS, fmt.Errorf("stats UL has %v LI, not 5", len(stats))
 	}
 
 	cS.Confirmed, err = parseStat(stats[0])
 	if err != nil {
 		return nil, cS, fmt.Errorf("problem parsing confirmed cases %w", err)
 	}
-	cS.Recovered, err = parseStat(stats[1])
+	cS.Probable, err = parseStat(stats[1])
+	if err != nil {
+		return nil, cS, fmt.Errorf("problem parsing probable cases %w", err)
+	}
+	cS.Total, err = parseStat(stats[2])
+	if err != nil {
+		return nil, cS, fmt.Errorf("problem parsing total cases %w", err)
+	}
+	cS.Recovered, err = parseStat(stats[3])
 	if err != nil {
 		return nil, cS, fmt.Errorf("problem parsing recovered cases %w", err)
 	}
-	cS.CommunityTransmission, err = parseStat(stats[2])
+	cS.CommunityTransmission, err = parseStat(stats[4])
 	if err != nil {
 		return nil, cS, fmt.Errorf("problem parsing community transmission cases %w", err)
 	}
