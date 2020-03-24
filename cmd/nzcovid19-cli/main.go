@@ -19,6 +19,7 @@ Usage: %v <action>
 		- locations/csv
 		- locations/geojson
 		- alertlevel/json
+		- grants/json
 `, os.Args[0])
 	os.Exit(1)
 }
@@ -44,6 +45,7 @@ func main() {
 		"cases": true,
 		"locations": true,
 		"alertlevel": true,
+		"grants": true,
 	}
 
 	if !validDataTypes[dataType] {
@@ -66,6 +68,11 @@ func main() {
 		abort(err, 4)
 	}
 
+	gS, gR, err := nzcovid19cases.ScrapeGrants()
+	if err != nil {
+		abort(err, 5)
+	}
+
 	var result string
 	switch dataType {
 	case "cases":
@@ -75,6 +82,8 @@ func main() {
 		result, err = nzcovid19cases.RenderLocations(locations, viewType)
 	case "alertlevel":
 		result, err = nzcovid19cases.RenderLevels(levelInt, levelString, viewType)
+	case "grants":
+		result, err = nzcovid19cases.RenderGrants(gS, gR, viewType)
 	}
 
 	if err != nil {
