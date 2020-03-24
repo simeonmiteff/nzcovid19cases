@@ -55,6 +55,7 @@ var locations = map[string]*geojson.Geometry{
 	"New Plymouth":      geojson.NewPointGeometry([]float64{174.0752, -39.0556}),
 	"Christchurch":      geojson.NewPointGeometry([]float64{172.6362, -43.5321}),
 	"Waitaki":           geojson.NewPointGeometry([]float64{170.6015, -44.9874}),
+	"South Canterbury":  geojson.NewPointGeometry([]float64{171.1637, -43.7542}),
 	//"":            geojson.NewPointGeometry([]float64{, -}),
 }
 
