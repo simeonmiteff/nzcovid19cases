@@ -20,6 +20,7 @@ Usage: %v <action>
 		- locations/geojson
 		- alertlevel/json
 		- grants/json
+		- casestats/json
 `, os.Args[0])
 	os.Exit(1)
 }
