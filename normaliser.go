@@ -28,8 +28,7 @@ var locations = map[string]*geojson.Geometry{
 	"Canterbury":        geojson.NewPointGeometry([]float64{171.1637, -43.7542}),
 	"Dundedin":          geojson.NewPointGeometry([]float64{170.5028, -45.8788}), // Typo
 	"Dunedin":           geojson.NewPointGeometry([]float64{170.5028, -45.8788}),
-	"Hawkes Bay":        geojson.NewPointGeometry([]float64{176.7416, -39.1090}), // Typo
-	"Hawke’s Bay":       geojson.NewPointGeometry([]float64{176.7416, -39.1090}),
+	"Hawke's Bay":       geojson.NewPointGeometry([]float64{176.7416, -39.1090}),
 	"Invercargill":      geojson.NewPointGeometry([]float64{168.3538, -46.4132}),
 	"Northland":         geojson.NewPointGeometry([]float64{173.7624, -35.5795}),
 	"Queenstown":        geojson.NewPointGeometry([]float64{168.6626, -45.0312}),
@@ -61,8 +60,8 @@ var locations = map[string]*geojson.Geometry{
 var locationNames = map[string]string{
 	"Dundedin":          "Dunedin",
 	"Hawkes Bay":        "Hawke's Bay",
+	"Hawke’s Bay":        "Hawke's Bay",
 	"Coramandel":        "Coromandel",
-	"Wellington ":		 "Wellington",
 }
 
 var ageLookup = map[string]AgeRange{
@@ -111,20 +110,24 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	if !ok {
 		return fmt.Errorf("gender string \"%v\" not found in lookup table", r.Gender)
 	}
-	geometry, ok := locations[strings.TrimSpace(r.Location)]
+
+	noSpaces := strings.TrimSpace(r.Location)
+	correctedName, ok := locationNames[noSpaces]
+	if ok {
+		n.LocationName = correctedName
+	} else {
+		n.LocationName = noSpaces
+	}
+
+	geometry, ok := locations[n.LocationName]
 	if !ok {
-		return fmt.Errorf("unknown location: \"%v\"", r.Location)
+		return fmt.Errorf("unknown location: \"%v\"", n.LocationName)
 	}
 	n.LocationCentrePoint = geometry
 
 	n.Gender = gender
 	n.CaseNumber = r.Case
-	correctedName, ok := locationNames[r.Location]
-	if ok {
-		n.LocationName = correctedName
-	} else {
-		n.LocationName = r.Location
-	}
+
 	n.TravelDetailsUnstructured = r.TravelDetails
 
 	return nil
