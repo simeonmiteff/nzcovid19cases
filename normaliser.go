@@ -62,6 +62,7 @@ var locationNames = map[string]string{
 	"Dundedin":          "Dunedin",
 	"Hawkes Bay":        "Hawke's Bay",
 	"Coramandel":        "Coromandel",
+	"Wellington ":		 "Wellington",
 }
 
 var ageLookup = map[string]AgeRange{
