@@ -56,6 +56,9 @@ var locations = map[string]*geojson.Geometry{
 	"Christchurch":      geojson.NewPointGeometry([]float64{172.6362, -43.5321}),
 	"Waitaki":           geojson.NewPointGeometry([]float64{170.6015, -44.9874}),
 	"South Canterbury":  geojson.NewPointGeometry([]float64{171.1637, -43.7542}),
+	"Wanaka":            geojson.NewPointGeometry([]float64{169.1321, -44.7032}),
+	"Blenheim":          geojson.NewPointGeometry([]float64{173.8977, -41.5290}),
+	"TBC":               geojson.NewPointGeometry([]float64{173.655098, -40.2257029}), // Dump em' in the Cook strait
 	//"":            geojson.NewPointGeometry([]float64{, -}),
 }
 
