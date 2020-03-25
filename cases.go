@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/anaskhan96/soup"
 	geojson "github.com/paulmach/go.geojson"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -40,14 +41,16 @@ func parseRow(cols []soup.Root) (RawCase, error) {
 	return c, nil
 }
 
+var reStat = regexp.MustCompile(`.* [-–] (\d+).*`)
+
 func parseStat(stat soup.Root) (int, error) {
-	parts := strings.Split(stat.Text(), " ")
-	if (len(parts)) < 2 {
-		return 0, fmt.Errorf("sentence has %v words, which is too few", len(parts))
+	matches := reStat.FindStringSubmatch(stat.Text())
+	if len(matches) != 2 {
+		return 0, fmt.Errorf("expected two match elements")
 	}
-	num, err := strconv.Atoi(parts[len(parts)-1])
+	num, err := strconv.Atoi(matches[1])
 	if err != nil {
-		return 0, fmt.Errorf("failed to convert %v to number: %w", parts[len(parts)-1], err)
+		return 0, fmt.Errorf("failed to convert %v to number: %w", matches[1], err)
 	}
 	return num, nil
 }
