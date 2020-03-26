@@ -14,6 +14,8 @@ Usage: %v <action>
 	Where <action> is one of:
 		- cases/json
 		- cases/csv
+		- locations/json
+		- locations/csv
 		- alertlevel/json
 		- grants/json
 		- casestats/json
@@ -80,9 +82,9 @@ func main() {
 	switch dataType {
 	case "cases":
 		result, err = nzcovid19cases.RenderCases(normCases, viewType)
-	//case "locations":
-	//	locations := nzcovid19cases.BuildLocations(normCases)
-	//	result, err = nzcovid19cases.RenderLocations(locations, viewType)
+	case "locations":
+		locations := nzcovid19cases.BuildLocations(normCases)
+		result, err = nzcovid19cases.RenderLocations(locations, viewType)
 	case "alertlevel":
 		result, err = nzcovid19cases.RenderLevels(levelInt, levelString, viewType)
 	case "grants":
