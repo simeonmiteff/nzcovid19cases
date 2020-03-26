@@ -5,7 +5,11 @@ import (
 )
 
 func main() {
-	rawCases, caseStats, err := nzcovid19cases.ScrapeCases()
+	rawCases, err := nzcovid19cases.ScrapeCases()
+	if err != nil {
+		panic(err)
+	}
+	caseStats, err := nzcovid19cases.ScrapeCaseStats()
 	if err != nil {
 		panic(err)
 	}
@@ -21,8 +25,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	locations := nzcovid19cases.BuildLocations(normCases)
-	_, err = nzcovid19cases.RenderLocations(locations, "csv")
+	//locations := nzcovid19cases.BuildLocations(normCases)
+	//_, err = nzcovid19cases.RenderLocations(locations, "csv")
 	levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
 	if err != nil {
 		panic(err)

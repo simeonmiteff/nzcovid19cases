@@ -1,12 +1,5 @@
 # NZ COVID-19 cases scraper
 
-# WARNING - this thing is currently broken!
-
-As MOH changed the format of of the cases page on 2020-03-26 (only reporting stats now, no longer individual cases) so it will take me a while to rework the scraper to do something useful.
-Meanwhile the data returned by the API is from yesterday (2020-03-25). Sorry for the inconvenience.
-
-If anyone knows if individual NZ COVID-19 case information is still being made public, please [drop me a note](mailto:simeon.miteff@gmail.com).
-
 # Overview
 
 This code is intended to scrape the following sources of COVID-19 data in New Zealand, and render the data in various formats suitable for mapping, visualisation and analysis:
@@ -31,22 +24,14 @@ For now there is a CLI tool:
 ```
 cmd/nzcovid19-cli$ ./nzcovid19-cli 
 
-Usage: ./nzcovid19-cli <action>
-        Where <action> is one of:
-                - cases/json
-                - cases/csv
-                - cases/geojson
-                - locations/json
-                - locations/csv
-                - locations/geojson
-                - alertlevel/json
-                - grants/json
-		        - casestats/json
+Usage: ./cmd/nzcovid19-cli/nzcovid19-cli <action>
+	Where <action> is one of:
+		- cases/json
+		- cases/csv
+		- alertlevel/json
+		- grants/json
+		- casestats/json
 ```
-
-## Notes about the data
-
-- The GeoJSON renderer looks up a coordinate based on the "Location" column from the table. Currently it has a look-up table that needs to be manually updated when new locations appear. This needs to be replaced with something more reliable.
 
 ## Code license
 

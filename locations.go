@@ -14,22 +14,22 @@ type Location struct {
 	CaseCount int
 }
 
-func BuildLocations(normCases []*NormalisedCase) map[string]*Location{
-	locations := make(map[string]*Location)
-	for _, c := range normCases {
-		loc, ok := locations[c.LocationName]
-		if !ok {
-			locations[c.LocationName] = &Location{
-				LocationName:        c.LocationName,
-				LocationCentrePoint: c.LocationCentrePoint,
-				CaseCount:           1,
-			}
-			continue
-		}
-		loc.CaseCount = loc.CaseCount + 1
-	}
-	return locations
-}
+//func BuildLocations(normCases []*NormalisedCase) map[string]*Location{
+//	locations := make(map[string]*Location)
+//	for _, c := range normCases {
+//		loc, ok := locations[c.LocationName]
+//		if !ok {
+//			locations[c.LocationName] = &Location{
+//				LocationName:        c.LocationName,
+//				//LocationCentrePoint: c.LocationCentrePoint,
+//				CaseCount:           1,
+//			}
+//			continue
+//		}
+//		loc.CaseCount = loc.CaseCount + 1
+//	}
+//	return locations
+//}
 
 func RenderLocations(locations map[string]*Location, viewType string) (string, error) {
 	validViewTypes := map[string]bool{

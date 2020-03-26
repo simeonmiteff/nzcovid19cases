@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/anaskhan96/soup"
-	geojson "github.com/paulmach/go.geojson"
-	"regexp"
 	"strconv"
 	"strings"
 )
@@ -22,9 +20,13 @@ type RawCase struct {
 type CaseStats struct {
 	Confirmed				int
 	Probable				int
-	Total					int
 	Recovered				int
-	CommunityTransmission	int
+	Hospitalised			int
+}
+
+type CaseStatsResponse struct {
+	CaseStatsTotal	CaseStats
+	CaseStats24h	CaseStats
 }
 
 func parseRow(cols []soup.Root) (RawCase, error) {
@@ -41,31 +43,30 @@ func parseRow(cols []soup.Root) (RawCase, error) {
 	return c, nil
 }
 
-var reStat = regexp.MustCompile(`.* [-–] (\d+).*`)
 
-func parseStat(stat soup.Root) (int, error) {
-	matches := reStat.FindStringSubmatch(stat.Text())
-	if len(matches) != 2 {
-		return 0, fmt.Errorf("expected two match elements")
+func parseStat(stat soup.Root) (int, int, error) {
+	tds := stat.FindAll("td")
+	if len(tds) != 3 {
+		return 0, 0, fmt.Errorf("expected three columns")
 	}
-	num, err := strconv.Atoi(matches[1])
+	num, err := strconv.Atoi(tds[1].Text())
 	if err != nil {
-		return 0, fmt.Errorf("failed to convert %v to number: %w", matches[1], err)
+		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", tds[1].Text(), err)
 	}
-	return num, nil
+	num24h, err := strconv.Atoi(tds[2].Text())
+	if err != nil {
+		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", tds[1].Text(), err)
+	}
+	return num, num24h, nil
 }
 
-func ScrapeCases() ([]*RawCase, CaseStats, error) {
-	var cS CaseStats
-	resp, err := soup.Get("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-cases")
+func ScrapeCases() ([]*RawCase, error) {
+	resp, err := soup.Get("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-cases/covid-19-current-cases-details")
 	if err != nil {
-		return nil, cS, err
+		return nil, err
 	}
 	doc := soup.HTMLParse(resp)
 	tables := doc.FindAll("table", "class", "table-style-two")
-	if len(tables) != 2 {
-		return nil, cS, fmt.Errorf("found %v tables, expecting 2", len(tables))
-	}
 
 	rows := tables[0].FindAll("tr")
 	var cases []*RawCase
@@ -78,70 +79,25 @@ func ScrapeCases() ([]*RawCase, CaseStats, error) {
 			continue
 		}
 		if len(cols) != 5 {
-			return nil, cS, fmt.Errorf("table 1 row has %v columns, not 5", len(cols))
+			return nil, fmt.Errorf("table 1 row has %v columns, not 5", len(cols))
 		}
 		c, err := parseRow(cols)
 		if err != nil {
-			return nil, cS, fmt.Errorf("table 1 problem parsing row %v from html table: %w", i, err)
+			return nil, fmt.Errorf("table 1 problem parsing row %v from html table: %w", i, err)
 		} else {
 			c.CaseType = "confirmed"
 			cases = append(cases, &c)
 		}
 	}
 
-	rows = tables[1].FindAll("tr")
-	for i, row := range rows[1:] {
-		cols := row.FindAll("td")
-		// This deals with the colspan=5 row that appeared
-		if len(cols) == 1 {
-			continue
-		}
-		if len(cols) != 5 {
-			return nil, cS, fmt.Errorf("table 2 row has %v columns, not 5", len(cols))
-		}
-		c, err := parseRow(cols)
-		if err != nil {
-			return nil, cS, fmt.Errorf("table 2 problem parsing row %v from html table: %w", i, err)
-		} else {
-			c.CaseType = "probable"
-			cases = append(cases, &c)
-		}
-	}
-
-	stats := doc.Find("div", "property", "content:encoded").FindAll("li")
-	if len(stats) != 5 {
-		return nil, cS, fmt.Errorf("stats UL has %v LI, not 5", len(stats))
-	}
-
-	cS.Confirmed, err = parseStat(stats[0])
-	if err != nil {
-		return nil, cS, fmt.Errorf("problem parsing confirmed cases %w", err)
-	}
-	cS.Probable, err = parseStat(stats[1])
-	if err != nil {
-		return nil, cS, fmt.Errorf("problem parsing probable cases %w", err)
-	}
-	cS.Total, err = parseStat(stats[2])
-	if err != nil {
-		return nil, cS, fmt.Errorf("problem parsing total cases %w", err)
-	}
-	cS.Recovered, err = parseStat(stats[3])
-	if err != nil {
-		return nil, cS, fmt.Errorf("problem parsing recovered cases %w", err)
-	}
-	cS.CommunityTransmission, err = parseStat(stats[4])
-	if err != nil {
-		return nil, cS, fmt.Errorf("problem parsing community transmission cases %w", err)
-	}
-
-	return cases, cS, nil
+	return cases, nil
 }
 
 func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 	validViewTypes := map[string]bool{
 		"csv":     true,
 		"json":    true,
-		"geojson": true,
+		//"geojson": true,
 	}
 	if !validViewTypes[viewType] {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
@@ -151,14 +107,12 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 	switch viewType {
 	case "csv":
 		sb.WriteString(`"CaseNumber", "LocationName", "AgeValid", "OlderOrEqualToAge", "YoungerOrEqualToAge"` +
-			`,"Gender", "TravelDetailsUnstructured", "LocationCentrePointLongitude",` +
-			`"LocationCentrePointLatitude", "CaseType"`)
+			`,"Gender", "TravelDetailsUnstructured", "CaseType"`)
 		sb.WriteRune('\n')
 		for _, c := range normCases {
-			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", %v, %v, "%v", "%v", %v, %v, "%v"`,
+			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", %v, %v, "%v", "%v", "%v"`,
 				c.CaseNumber, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,
 				c.Age.YoungerOrEqualToAge, c.Gender, c.TravelDetailsUnstructured,
-				c.LocationCentrePoint.Point[0], c.LocationCentrePoint.Point[1],
 				c.CaseType))
 			sb.WriteRune('\n')
 		}
@@ -168,32 +122,71 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 			return "", err
 		}
 		sb.Write(b)
-	case "geojson":
-		fc := geojson.NewFeatureCollection()
-		for _, c := range normCases {
-			var feature geojson.Feature
-			feature.Geometry = c.LocationCentrePoint
-			feature.SetProperty("LocationName", c.LocationName)
-			feature.SetProperty("CaseNumber", c.CaseNumber)
-			feature.SetProperty("AgeValid", c.Age.Valid)
-			feature.SetProperty("OlderOrEqualToAge", c.Age.OlderOrEqualToAge)
-			feature.SetProperty("YoungerOrEqualToAge", c.Age.YoungerOrEqualToAge)
-			feature.SetProperty("Gender", c.Gender)
-			feature.SetProperty("Travel details", c.TravelDetailsUnstructured)
-			feature.SetProperty("CaseType", c.CaseType)
-			fc.AddFeature(&feature)
-		}
-		b, err := fc.MarshalJSON()
-		if err != nil {
-			return "", err
-		}
-		sb.Write(b)
-		sb.WriteRune('\n')
+	//case "geojson":
+	//	fc := geojson.NewFeatureCollection()
+	//	for _, c := range normCases {
+	//		var feature geojson.Feature
+	//		feature.Geometry = c.LocationCentrePoint
+	//		feature.SetProperty("LocationName", c.LocationName)
+	//		feature.SetProperty("CaseNumber", c.CaseNumber)
+	//		feature.SetProperty("AgeValid", c.Age.Valid)
+	//		feature.SetProperty("OlderOrEqualToAge", c.Age.OlderOrEqualToAge)
+	//		feature.SetProperty("YoungerOrEqualToAge", c.Age.YoungerOrEqualToAge)
+	//		feature.SetProperty("Gender", c.Gender)
+	//		feature.SetProperty("Travel details", c.TravelDetailsUnstructured)
+	//		feature.SetProperty("CaseType", c.CaseType)
+	//		fc.AddFeature(&feature)
+	//	}
+	//	b, err := fc.MarshalJSON()
+	//	if err != nil {
+	//		return "", err
+	//	}
+	//	sb.Write(b)
+	//	sb.WriteRune('\n')
 	}
 	return sb.String(), nil
 }
 
-func RenderCaseStats(cS CaseStats, viewType string) (string, error) {
+func ScrapeCaseStats() (CaseStatsResponse, error) {
+	var cS CaseStatsResponse
+	resp, err := soup.Get("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-cases")
+	if err != nil {
+		return cS, err
+	}
+	doc := soup.HTMLParse(resp)
+
+	tables := doc.FindAll("table")
+	stats := tables[0].FindAll("tr")
+
+	if len(tables) != 3 {
+		return cS, fmt.Errorf("found %v tables, not 3", len(tables))
+	}
+
+	if len(stats) != 6 {
+		return cS, fmt.Errorf("stats table has %v TR, not 5", len(stats))
+	}
+
+	cS.CaseStatsTotal.Confirmed, cS.CaseStats24h.Confirmed, err = parseStat(stats[1])
+	if err != nil {
+		return cS, fmt.Errorf("problem parsing confirmed cases %w", err)
+	}
+	cS.CaseStatsTotal.Probable, cS.CaseStats24h.Probable, err = parseStat(stats[2])
+	if err != nil {
+		return cS, fmt.Errorf("problem parsing probable cases %w", err)
+	}
+	cS.CaseStatsTotal.Hospitalised, cS.CaseStats24h.Hospitalised, err = parseStat(stats[4])
+	if err != nil {
+		return cS, fmt.Errorf("problem parsing hospitalised cases %w", err)
+	}
+	cS.CaseStatsTotal.Recovered, cS.CaseStats24h.Recovered, err = parseStat(stats[5])
+	if err != nil {
+		return cS, fmt.Errorf("problem parsing recovered cases %w", err)
+	}
+
+	return cS, nil
+}
+
+func RenderCaseStats(cS CaseStatsResponse, viewType string) (string, error) {
 	var sb strings.Builder
 	if viewType != "json" {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}

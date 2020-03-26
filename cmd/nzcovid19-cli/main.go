@@ -14,10 +14,6 @@ Usage: %v <action>
 	Where <action> is one of:
 		- cases/json
 		- cases/csv
-		- cases/geojson
-		- locations/json
-		- locations/csv
-		- locations/geojson
 		- alertlevel/json
 		- grants/json
 		- casestats/json
@@ -55,33 +51,38 @@ func main() {
 		usage()
 	}
 
-	rawCases, caseStats, err := nzcovid19cases.ScrapeCases()
+	rawCases, err := nzcovid19cases.ScrapeCases()
 	if err != nil {
 		abort(err, 2)
 	}
 
-	normCases, err := nzcovid19cases.NormaliseCases(rawCases)
+	caseStats, err := nzcovid19cases.ScrapeCaseStats()
 	if err != nil {
 		abort(err, 3)
 	}
 
-	levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
+	normCases, err := nzcovid19cases.NormaliseCases(rawCases)
 	if err != nil {
 		abort(err, 4)
 	}
 
-	gS, gR, err := nzcovid19cases.ScrapeGrants()
+	levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
 	if err != nil {
 		abort(err, 5)
+	}
+
+	gS, gR, err := nzcovid19cases.ScrapeGrants()
+	if err != nil {
+		abort(err, 6)
 	}
 
 	var result string
 	switch dataType {
 	case "cases":
 		result, err = nzcovid19cases.RenderCases(normCases, viewType)
-	case "locations":
-		locations := nzcovid19cases.BuildLocations(normCases)
-		result, err = nzcovid19cases.RenderLocations(locations, viewType)
+	//case "locations":
+	//	locations := nzcovid19cases.BuildLocations(normCases)
+	//	result, err = nzcovid19cases.RenderLocations(locations, viewType)
 	case "alertlevel":
 		result, err = nzcovid19cases.RenderLevels(levelInt, levelString, viewType)
 	case "grants":
