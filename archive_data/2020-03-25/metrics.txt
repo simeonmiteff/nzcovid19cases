@@ -1,0 +1,74 @@
+# HELP nzcovid19api_cases The total number of COVID-19 cases
+# TYPE nzcovid19api_cases gauge
+nzcovid19api_cases 205
+# HELP nzcovid19api_casesareaname The total number of COVID-19 cases by area name
+# TYPE nzcovid19api_casesareaname gauge
+nzcovid19api_casesareaname{areaname="Auckland"} 79
+nzcovid19api_casesareaname{areaname="Bay of Plenty"} 2
+nzcovid19api_casesareaname{areaname="Blenheim"} 1
+nzcovid19api_casesareaname{areaname="Canterbury"} 8
+nzcovid19api_casesareaname{areaname="Christchurch"} 5
+nzcovid19api_casesareaname{areaname="Dunedin"} 11
+nzcovid19api_casesareaname{areaname="Hamilton"} 5
+nzcovid19api_casesareaname{areaname="Hawke's Bay"} 3
+nzcovid19api_casesareaname{areaname="Invercargill"} 1
+nzcovid19api_casesareaname{areaname="Kapiti Coast"} 3
+nzcovid19api_casesareaname{areaname="Manawatu"} 3
+nzcovid19api_casesareaname{areaname="Marlborough"} 5
+nzcovid19api_casesareaname{areaname="Nelson"} 5
+nzcovid19api_casesareaname{areaname="New Plymouth"} 1
+nzcovid19api_casesareaname{areaname="Northland"} 2
+nzcovid19api_casesareaname{areaname="Otago"} 2
+nzcovid19api_casesareaname{areaname="Queenstown"} 2
+nzcovid19api_casesareaname{areaname="Rotorua"} 1
+nzcovid19api_casesareaname{areaname="Southern DHB"} 2
+nzcovid19api_casesareaname{areaname="TBC"} 2
+nzcovid19api_casesareaname{areaname="Taranaki"} 4
+nzcovid19api_casesareaname{areaname="Tasman"} 1
+nzcovid19api_casesareaname{areaname="Taupo"} 1
+nzcovid19api_casesareaname{areaname="Upper Hutt"} 1
+nzcovid19api_casesareaname{areaname="Waikato"} 11
+nzcovid19api_casesareaname{areaname="Wairarapa"} 2
+nzcovid19api_casesareaname{areaname="Waitaki"} 1
+nzcovid19api_casesareaname{areaname="Waitemata"} 4
+nzcovid19api_casesareaname{areaname="Wanaka"} 1
+nzcovid19api_casesareaname{areaname="Wellington"} 34
+nzcovid19api_casesareaname{areaname="Wellington Region"} 2
+# HELP nzcovid19api_casescommunitytransmission NZ government COVID-19 cases community transmission count
+# TYPE nzcovid19api_casescommunitytransmission gauge
+nzcovid19api_casescommunitytransmission 4
+# HELP nzcovid19api_casesconfirmed NZ government COVID-19 cases confirmed count
+# TYPE nzcovid19api_casesconfirmed gauge
+nzcovid19api_casesconfirmed 189
+# HELP nzcovid19api_casesprobable NZ government COVID-19 cases probable count
+# TYPE nzcovid19api_casesprobable gauge
+nzcovid19api_casesprobable 16
+# HELP nzcovid19api_casesrecovered NZ government COVID-19 cases  count
+# TYPE nzcovid19api_casesrecovered gauge
+nzcovid19api_casesrecovered 22
+# HELP nzcovid19api_casestotal NZ government COVID-19 cases total count
+# TYPE nzcovid19api_casestotal gauge
+nzcovid19api_casestotal 205
+# HELP nzcovid19api_grantsclientcount NZ government COVID-19 hardship grants total clients
+# TYPE nzcovid19api_grantsclientcount gauge
+nzcovid19api_grantsclientcount 512
+# HELP nzcovid19api_grantscount NZ government COVID-19 hardship grants number
+# TYPE nzcovid19api_grantscount gauge
+nzcovid19api_grantscount 546
+# HELP nzcovid19api_grantsmoney NZ government COVID-19 hardship grants total dollars
+# TYPE nzcovid19api_grantsmoney gauge
+nzcovid19api_grantsmoney 75114
+# HELP nzcovid19api_grantsregion NZ government COVID-19 hardship grants count by region
+# TYPE nzcovid19api_grantsregion gauge
+nzcovid19api_grantsregion{region="Auckland"} 37
+nzcovid19api_grantsregion{region="Bay Of Plenty"} 14
+nzcovid19api_grantsregion{region="Canterbury"} 3
+nzcovid19api_grantsregion{region="EastCoast"} 9
+nzcovid19api_grantsregion{region="Nelson"} 1
+nzcovid19api_grantsregion{region="Northland"} 6
+nzcovid19api_grantsregion{region="Other"} 7
+nzcovid19api_grantsregion{region="Southern"} 6
+nzcovid19api_grantsregion{region="Wellington"} 16
+# HELP nzcovid19api_level NZ government COVID-19 alert level number
+# TYPE nzcovid19api_level gauge
+nzcovid19api_level 4

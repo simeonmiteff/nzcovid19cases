@@ -1,0 +1,343 @@
+{
+  "Auckland": {
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "CaseCount": 79
+  },
+  "Bay of Plenty": {
+    "LocationName": "Bay of Plenty",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        177.1423,
+        -37.6893
+      ]
+    },
+    "CaseCount": 2
+  },
+  "Blenheim": {
+    "LocationName": "Blenheim",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.8977,
+        -41.529
+      ]
+    },
+    "CaseCount": 1
+  },
+  "Canterbury": {
+    "LocationName": "Canterbury",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        171.1637,
+        -43.7542
+      ]
+    },
+    "CaseCount": 8
+  },
+  "Christchurch": {
+    "LocationName": "Christchurch",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        172.6362,
+        -43.5321
+      ]
+    },
+    "CaseCount": 5
+  },
+  "Dunedin": {
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "CaseCount": 11
+  },
+  "Hamilton": {
+    "LocationName": "Hamilton",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.2793,
+        -37.787
+      ]
+    },
+    "CaseCount": 5
+  },
+  "Hawke's Bay": {
+    "LocationName": "Hawke's Bay",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        176.7416,
+        -39.109
+      ]
+    },
+    "CaseCount": 3
+  },
+  "Invercargill": {
+    "LocationName": "Invercargill",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        168.3538,
+        -46.4132
+      ]
+    },
+    "CaseCount": 1
+  },
+  "Kapiti Coast": {
+    "LocationName": "Kapiti Coast",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.3136,
+        -40.8233
+      ]
+    },
+    "CaseCount": 3
+  },
+  "Manawatu": {
+    "LocationName": "Manawatu",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.4376,
+        -39.7273
+      ]
+    },
+    "CaseCount": 3
+  },
+  "Marlborough": {
+    "LocationName": "Marlborough",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.4217,
+        -41.5727
+      ]
+    },
+    "CaseCount": 5
+  },
+  "Nelson": {
+    "LocationName": "Nelson",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.284,
+        -41.2706
+      ]
+    },
+    "CaseCount": 5
+  },
+  "New Plymouth": {
+    "LocationName": "New Plymouth",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.0752,
+        -39.0556
+      ]
+    },
+    "CaseCount": 1
+  },
+  "Northland": {
+    "LocationName": "Northland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.7624,
+        -35.5795
+      ]
+    },
+    "CaseCount": 2
+  },
+  "Otago": {
+    "LocationName": "Otago",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.1548,
+        -45.4791
+      ]
+    },
+    "CaseCount": 2
+  },
+  "Queenstown": {
+    "LocationName": "Queenstown",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        168.6626,
+        -45.0312
+      ]
+    },
+    "CaseCount": 2
+  },
+  "Rotorua": {
+    "LocationName": "Rotorua",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        176.2497,
+        -38.1368
+      ]
+    },
+    "CaseCount": 1
+  },
+  "Southern DHB": {
+    "LocationName": "Southern DHB",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5086,
+        -45.8694
+      ]
+    },
+    "CaseCount": 2
+  },
+  "TBC": {
+    "LocationName": "TBC",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.655098,
+        -40.2257029
+      ]
+    },
+    "CaseCount": 2
+  },
+  "Taranaki": {
+    "LocationName": "Taranaki",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.4383,
+        -39.3538
+      ]
+    },
+    "CaseCount": 4
+  },
+  "Tasman": {
+    "LocationName": "Tasman",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        172.7347,
+        -41.2122
+      ]
+    },
+    "CaseCount": 1
+  },
+  "Taupo": {
+    "LocationName": "Taupo",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        176.0702,
+        -38.6857
+      ]
+    },
+    "CaseCount": 1
+  },
+  "Upper Hutt": {
+    "LocationName": "Upper Hutt",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.0708,
+        -41.1244
+      ]
+    },
+    "CaseCount": 1
+  },
+  "Waikato": {
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "CaseCount": 11
+  },
+  "Wairarapa": {
+    "LocationName": "Wairarapa",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.6574,
+        -40.9511
+      ]
+    },
+    "CaseCount": 2
+  },
+  "Waitaki": {
+    "LocationName": "Waitaki",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.6015,
+        -44.9874
+      ]
+    },
+    "CaseCount": 1
+  },
+  "Waitemata": {
+    "LocationName": "Waitemata",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.5222,
+        -36.7423
+      ]
+    },
+    "CaseCount": 4
+  },
+  "Wanaka": {
+    "LocationName": "Wanaka",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        169.1321,
+        -44.7032
+      ]
+    },
+    "CaseCount": 1
+  },
+  "Wellington": {
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "CaseCount": 34
+  },
+  "Wellington Region": {
+    "LocationName": "Wellington Region",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.4376,
+        -41.0299
+      ]
+    },
+    "CaseCount": 2
+  }
+}

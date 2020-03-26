@@ -1,0 +1,3897 @@
+[
+  {
+    "CaseNumber": 189,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 188,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 187,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 186,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 185,
+    "LocationName": "Waitemata",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.5222,
+        -36.7423
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 184,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 183,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 182,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 181,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 180,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 179,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 178,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 177,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Linked to a group trip to New York",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 176,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Linked to a group trip to New York",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 175,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Linked to a group trip to New York",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 174,
+    "LocationName": "Marlborough",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.4217,
+        -41.5727
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 80,
+      "YoungerOrEqualToAge": 89
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 173,
+    "LocationName": "Bay of Plenty",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        177.1423,
+        -37.6893
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 172,
+    "LocationName": "Waitemata",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.5222,
+        -36.7423
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 171,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 170,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 169,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 168,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 167,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 166,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 165,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 164,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 163,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 162,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 161,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 160,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 159,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 158,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 157,
+    "LocationName": "Canterbury",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        171.1637,
+        -43.7542
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 156,
+    "LocationName": "Wanaka",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        169.1321,
+        -44.7032
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 155,
+    "LocationName": "Queenstown",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        168.6626,
+        -45.0312
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 154,
+    "LocationName": "Waitemata",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.5222,
+        -36.7423
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 153,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 152,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "London via Dubai to Auckland on 21 March – Flight EK448, Auckland to Dunedin on 23 March flight NZ677",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 151,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Linked to a group trip to New York. Houston to Auckland on 20 March – Flight NZ0029, Auckland to Wellington on 20 March – Flight NZ0407",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 150,
+    "LocationName": "Hamilton",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.2793,
+        -37.787
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 22 March – Flight EK448, Auckland to Rotorua on 23 March – Flight NZ8155",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 149,
+    "LocationName": "Hamilton",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.2793,
+        -37.787
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Under Investigation",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 148,
+    "LocationName": "Christchurch",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        172.6362,
+        -43.5321
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Sydney to Christchurch on 13 March – Flight EK412",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 147,
+    "LocationName": "Canterbury",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        171.1637,
+        -43.7542
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Linked to confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 146,
+    "LocationName": "Christchurch",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        172.6362,
+        -43.5321
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "London via Dubai and Sydney, arrived Christchurch 13 March – flight EK006",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 145,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Linked to a confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 144,
+    "LocationName": "Hamilton",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.2793,
+        -37.787
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Under investigation",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 143,
+    "LocationName": "Christchurch",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        172.6362,
+        -43.5321
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "San Francisco to Auckland, arrived 21 March – flight NZ7, Auckland to Christchurch on 21 March – NZ527",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 142,
+    "LocationName": "Waitemata",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.5222,
+        -36.7423
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "LA to Auckland on 14 March – flight AA83",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 141,
+    "LocationName": "New Plymouth",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.0752,
+        -39.0556
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 140,
+    "LocationName": "Wairarapa",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.6574,
+        -40.9511
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 139,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 64,
+      "YoungerOrEqualToAge": 64
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 138,
+    "LocationName": "Marlborough",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.4217,
+        -41.5727
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Linked to a confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 137,
+    "LocationName": "Marlborough",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.4217,
+        -41.5727
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Linked to a confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 136,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 135,
+    "LocationName": "Kapiti Coast",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.3136,
+        -40.8233
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Cruise ship travel then flew Sydney to Wellington on 18 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 134,
+    "LocationName": "Kapiti Coast",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.3136,
+        -40.8233
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Cruise ship travel then flew Sydney to Wellington on 18 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 133,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "No international travel history – exposed at World Hereford Conference in Queenstown",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 132,
+    "LocationName": "Hawke's Bay",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        176.7416,
+        -39.109
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Barcelona via Dubai to Auckland, arrived on 18 March, flight EK448, Auckland to Napier on 19 March – flight NZ5021",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 131,
+    "LocationName": "Hawke's Bay",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        176.7416,
+        -39.109
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Barcelona via Dubai to Auckland, arrived on 18 March, flight EK448, Auckland to Napier on 19 March – flight NZ5021",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 130,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 129,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Sydney to Wellington on 20 March – flight QF161",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 128,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "London to Dubai on 17 March – flight EK0002, Dubai via Bali to Auckland on 18 March – flight EK450, Auckland to Wellington on 19 March – flight NZ409",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 127,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Linked to a group trip to New York. LA to Auckland on 17 March – Flight NZ5, Auckland to Wellington on 19 March – Flight NZ409",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 126,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Linked to a group trip to New York. LA to Auckland on 17 March – Flight NZ5, Auckland to Wellington on 19 March – Flight NZ409",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 125,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Linked to a group trip to New York. Travelled from USA to New Zealand, arrived on 19 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 124,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Linked to a group’s trip to New York. Travelled from USA to New Zealand, arrived on 19 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 123,
+    "LocationName": "Nelson",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.284,
+        -41.2706
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 80,
+      "YoungerOrEqualToAge": 89
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 122,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 121,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Dubai to Auckland, arrived on 19 March – flight EK447, Auckland to Dunedin on 19 March – flight JQ285",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 120,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "London to LA on 14 March, then LA to Auckland - flight NZ5, Auckland to Dunedin on 16 March – flight NZ671",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 119,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "No international travel history – exposed at World Hereford Conference in Queenstown",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 118,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 117,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Arrived in Auckland on 18 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 116,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Arrived in Auckland on 20 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 115,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 114,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 113,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Arrived in Auckland 18 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 112,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 111,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 16 March – flight EK0448",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 110,
+    "LocationName": "Christchurch",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        172.6362,
+        -43.5321
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Relative of a confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 109,
+    "LocationName": "Christchurch",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        172.6362,
+        -43.5321
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Relative of a confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 108,
+    "LocationName": "Queenstown",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        168.6626,
+        -45.0312
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 18 March – flight EK448, Auckland to Queenstown on 19 March – flight EK7563",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 107,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "No international travel history – exposed at World Herefords Conference in Queenstown",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 106,
+    "LocationName": "Otago",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.1548,
+        -45.4791
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "No international travel history – exposed at World Hereford Conference in Queenstown.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 105,
+    "LocationName": "Waitaki",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.6015,
+        -44.9874
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Departed Switzerland 16 March, flew via Abu Dhabi to New Zealand – flight EY0052",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 104,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 103,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "USA to Auckland, arrived 18 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 102,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "USA to Auckland, arrived 8 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 101,
+    "LocationName": "Upper Hutt",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.0708,
+        -41.1244
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 100,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 99,
+    "LocationName": "Nelson",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.284,
+        -41.2706
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Linked to a confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 98,
+    "LocationName": "Kapiti Coast",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.3136,
+        -40.8233
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 97,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 96,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 95,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Exposed to two people in household with history of international travel and symptoms",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 94,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 19 March – flight EK448",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 93,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 92,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Doha to Auckland on 22 March – flight QR920",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 91,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "LA to New Zealand on 15 March – flight NZ1",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 90,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "LA to New Zealand on 15 March – flight NZ1",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 89,
+    "LocationName": "Nelson",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.284,
+        -41.2706
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Related to case 88",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 88,
+    "LocationName": "Nelson",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.284,
+        -41.2706
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 87,
+    "LocationName": "Canterbury",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        171.1637,
+        -43.7542
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 86,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "London to Sydney on 13 March – flight QF2, Sydney to Wellington on 15 March – flight QF161",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 85,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 0,
+      "YoungerOrEqualToAge": 12
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Relative of a confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 84,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Doha to Auckland on 18 March – flight QR920",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 83,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Doha to Auckland on 18 March – flight QR920",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 82,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Linked to two confirmed cases",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 81,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 18 March – flight EK448",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 80,
+    "LocationName": "Marlborough",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.4217,
+        -41.5727
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Sydney to Auckland on 18 March – flight QF143, Auckland to Blenheim on 18 March – flight NZ8205",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 79,
+    "LocationName": "Tasman",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        172.7347,
+        -41.2122
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "International travel – flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 78,
+    "LocationName": "Manawatu",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.4376,
+        -39.7273
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Sydney to Wellington on 19 March – flight NZ842",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 77,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Kuala Lumpur to Auckland on 19 March – flight MH0133",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 76,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Hong Kong to Auckland on 13 March – flight CX2191",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 75,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Relative of a confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 74,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Sydney to Auckland, arriving 18 March – flight QF143",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 73,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 72,
+    "LocationName": "Canterbury",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        171.1637,
+        -43.7542
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Singapore to Christchurch on 18 March – flight SQ297",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 71,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "LA to Auckland on 18 March – flight NZ05",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 70,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Under investigation",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 69,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 15 March – flight EK448",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 68,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "San Francisco to Auckland on 17 March – flight NZ07, Auckland to Dunedin on 19 March – flight JQ285",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 67,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Wellington to Auckland on 15 March – flight JQ256",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 66,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 15 March - flight EK448",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 65,
+    "LocationName": "Northland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.7624,
+        -35.5795
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Melbourne to Auckland on Sunday 15 March – flight JQ217",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 64,
+    "LocationName": "Canterbury",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        171.1637,
+        -43.7542
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "San Francisco to Auckland on Monday 16 March – flight NZ7",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 63,
+    "LocationName": "Taranaki",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.4383,
+        -39.3538
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Dubai to Auckland on Tuesday 17 March – flight EK448",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 62,
+    "LocationName": "Taranaki",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.4383,
+        -39.3538
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Bangkok to Auckland on Sunday 15 March – flight TG0491",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 61,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Travel to Africa – details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 60,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Dubai to Auckland on Monday 16 March – flight EK448",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 59,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "No international travel history – exposed at World Hereford Conference in Queenstown.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 58,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "No international travel history – exposed at World Herefords Conference in Queenstown. Domestic travel history:",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 57,
+    "LocationName": "Hamilton",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.2793,
+        -37.787
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Travel history to Ireland, Dubai and Australia. Details to come.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 56,
+    "LocationName": "Bay of Plenty",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        177.1423,
+        -37.6893
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Travel history to the United States of America – details to come.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 55,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Honolulu to Auckland on 14 March – flight HA445 (arrived 15 March)",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 54,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Contact with a confirmed case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 53,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "LA to Auckland on 14 March – flight NZ1",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 52,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Contact with probable case",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 51,
+    "LocationName": "Nelson",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.284,
+        -41.2706
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Travel related, however international flights outside of infectious period. ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 50,
+    "LocationName": "Marlborough",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.4217,
+        -41.5727
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Contact with traveller. Further investigations continue.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 49,
+    "LocationName": "Manawatu",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.4376,
+        -39.7273
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Doha to Auckland on 14 March – flight QR0920",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 48,
+    "LocationName": "Manawatu",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.4376,
+        -39.7273
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Queenstown to Christchurch on 13 March – flight NZ642",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 47,
+    "LocationName": "Taupo",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        176.0702,
+        -38.6857
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 10 March – flight EK0448",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 46,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Under investigation. Took internal flight when symptomatic. Dunedin to Auckland on 16 March – flight NZ674",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 45,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 12 March – flight EK44",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 44,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Travel related, however international flights outside of infectious period. ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 43,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Sydney to Wellington on 14 March – flight QF161.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 42,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Singapore to Auckland on 13 March – flight SQ0285.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 41,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Cruise ship travel. Domestic flights – Dunedin to Auckland on 15 March – flight NZ670.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 40,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Sydney to Wellington on 14 March – flight EK0412 ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 39,
+    "LocationName": "Otago",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.1548,
+        -45.4791
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "LA to Auckland on Wednesday 18 March – flight NZ554 Auckland to Queenstown on Wednesday 18 March – flight NZ615",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 38,
+    "LocationName": "Wairarapa",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.6574,
+        -40.9511
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Under investigation.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 37,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "London to Doha to Auckland (on Sunday 15 March) - flight details to come.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 36,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Los Angeles to Auckland - flight details to come.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 35,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Los Angeles to Auckland - flight details to come.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 34,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 16 March – flight EK0450",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 33,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Dubai to Auckland on 16 March – flight EK0450",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 32,
+    "LocationName": "Hawke's Bay",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        176.7416,
+        -39.109
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Doha to Auckland on 16 March – flight QR920 Auckland to Napier on 17 March – flight NZ5021",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 31,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Melbourne to Wellington on 14 March – flight SQ247",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 30,
+    "LocationName": "Canterbury",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        171.1637,
+        -43.7542
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Los Angeles to Auckland on 14 March – flight AA83",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 29,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Singapore to Auckland on 11 March",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 28,
+    "LocationName": "Southern DHB",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5086,
+        -45.8694
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Sydney to Christchurch on 13 March – flight EK402",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 27,
+    "LocationName": "Southern DHB",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5086,
+        -45.8694
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "London to Auckland on 17 March – flight NZ1",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 26,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Melbourne to Auckland on 15 March – flight QF153",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 25,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Los Angeles to Auckland on 13 March – flight NZ05",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 24,
+    "LocationName": "Rotorua",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        176.2497,
+        -38.1368
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Singapore to Auckland on 13 March – flight SQ285",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 23,
+    "LocationName": "Northland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.7624,
+        -35.5795
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Sydney to Auckland on 16 March – flight VA0141",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 22,
+    "LocationName": "Taranaki",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.4383,
+        -39.3538
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Vancouver to Auckland, arrived on 15 March – flight NZ23, Auckland to New Plymouth on 15 March – flight NZ8035",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 21,
+    "LocationName": "Taranaki",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.4383,
+        -39.3538
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Dubai to Auckland, arrived on 9 March – flight EK448,  Auckland to New Plymouth on 9 March – flight NZ8041",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 20,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Singapore to Auckland on 15 March – flight SQ285",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 19,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Sydney to Auckland, arrived on 8 March – flight NZ112",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 18,
+    "LocationName": "Canterbury",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        171.1637,
+        -43.7542
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Singapore to Christchurch, arrived on 16 March – flight SQ297",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 17,
+    "LocationName": "Invercargill",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        168.3538,
+        -46.4132
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Sydney to Auckland, arrived 10 March – flight NZ102",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 16,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Canada to New Zealand, arrived on 12 March – flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 15,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "San Francisco to Auckland, arrived on 13 March – flight NZ7",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 14,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "International travel – arrived 8 March, flight details to come",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 13,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Dubai to Auckland, arrived on 14 March – flight EK448",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 12,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Related to case 11.",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 11,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Singapore to Auckland on 7 March – flight NZ283, Auckland to Dunedin on 8 March – flight NZ675",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 10,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Los Angeles to Auckland on 14 March – flight AA83",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 9,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Los Angeles to Auckland on 14 March – flight AA83",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 8,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Brisbane to Wellington, arrived on 14 March – flight NZ828  ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 7,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Doha to Auckland on 10 March – flight QR920, Auckland to Christchurch on 10 March – flight JQ225",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 6,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Houston to Auckland on 6 March – flight NZ029  ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 5,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Doha to Auckland on 23 February – flight QR0920  ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 4,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Singapore to Auckland on 25 February – flight NZ283  ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 3,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Doha to Auckland, arrived on 23 February – flight QR0920  ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 2,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 30,
+      "YoungerOrEqualToAge": 39
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Singapore to Auckland on 25 February – flight NZ283  ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 1,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Iran to Bali to Auckland, arrived on 26 February – flight EK450 ",
+    "CaseType": "confirmed"
+  },
+  {
+    "CaseNumber": 16,
+    "LocationName": "TBC",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.655098,
+        -40.2257029
+      ]
+    },
+    "Age": {
+      "Valid": false,
+      "OlderOrEqualToAge": 0,
+      "YoungerOrEqualToAge": 0
+    },
+    "Gender": "Unknown or undisclosed",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 15,
+    "LocationName": "TBC",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.655098,
+        -40.2257029
+      ]
+    },
+    "Age": {
+      "Valid": false,
+      "OlderOrEqualToAge": 0,
+      "YoungerOrEqualToAge": 0
+    },
+    "Gender": "Unknown or undisclosed",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 14,
+    "LocationName": "Blenheim",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        173.8977,
+        -41.529
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 20,
+      "YoungerOrEqualToAge": 29
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 13,
+    "LocationName": "Wellington Region",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.4376,
+        -41.0299
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 12,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 11,
+    "LocationName": "Wellington Region",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.4376,
+        -41.0299
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 60,
+      "YoungerOrEqualToAge": 69
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 10,
+    "LocationName": "Wellington",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7762,
+        -41.2865
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 80,
+      "YoungerOrEqualToAge": 89
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 9,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 8,
+    "LocationName": "Waikato",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.1894,
+        -37.4558
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 7,
+    "LocationName": "Canterbury",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        171.1637,
+        -43.7542
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 6,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": "Arrived in New Zealand from USA",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 5,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 70,
+      "YoungerOrEqualToAge": 79
+    },
+    "Gender": "Male",
+    "TravelDetailsUnstructured": "Arrived in Auckland from Qatar",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 4,
+    "LocationName": "Hamilton",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        175.2793,
+        -37.787
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 40,
+      "YoungerOrEqualToAge": 49
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 3,
+    "LocationName": "Dunedin",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        170.5028,
+        -45.8788
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 2,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 13,
+      "YoungerOrEqualToAge": 19
+    },
+    "Gender": "Female",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  },
+  {
+    "CaseNumber": 1,
+    "LocationName": "Auckland",
+    "LocationCentrePoint": {
+      "type": "Point",
+      "coordinates": [
+        174.7633,
+        -36.8485
+      ]
+    },
+    "Age": {
+      "Valid": true,
+      "OlderOrEqualToAge": 50,
+      "YoungerOrEqualToAge": 59
+    },
+    "Gender": "Unknown or undisclosed",
+    "TravelDetailsUnstructured": " ",
+    "CaseType": "probable"
+  }
+]

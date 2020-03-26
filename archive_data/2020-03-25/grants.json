@@ -1,0 +1,19 @@
+{
+  "Summary": {
+    "Clients": 512,
+    "Grants": 546,
+    "SumGrantAmount": 75114
+  },
+  "Regions": {
+    "Auckland": 37,
+    "EastCoast": 9,
+    "BayOfPlenty": 14,
+    "Northland": 6,
+    "Wellington": 16,
+    "Nelson": 1,
+    "Canterbury": 3,
+    "Southern": 6,
+    "Other": 7,
+    "Total": 8
+  }
+}
