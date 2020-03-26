@@ -1,5 +1,14 @@
 # NZ COVID-19 cases scraper
 
+# WARNING - this thing is currently broken!
+
+As MOH changed the format of of the cases page on 2020-03-26 (only reporting stats now, no longer individual cases) so it will take me a while to rework the scraper to do something useful.
+Meanwhile the data returned by the API is from yesterday (2020-03-25). Sorry for the inconvenience.
+
+If anyone knows if individual NZ COVID-19 case information is still being made public, please [drop me a note](mailto:simeon.miteff@gmail.com).
+
+# Overview
+
 This code is intended to scrape the following sources of COVID-19 data in New Zealand, and render the data in various formats suitable for mapping, visualisation and analysis:
  - Ministry Of Health COVID-19 [COVID-19 case page](https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-cases)
  - Ministry Of Social Development [COVID-19 hardship grants page](https://www.msd.govt.nz/about-msd-and-our-work/newsroom/2020/covid-19/covid-19-data.html)
