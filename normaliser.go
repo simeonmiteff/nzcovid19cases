@@ -54,6 +54,15 @@ var levelLoopup = map[int]string {
 	4:"Eliminate",
 }
 
+var locationNames = map[string]string{
+	"Capital & Coast": 		"Capital and Coast",
+	"Hawkes’s Bay": 		"Hawke's Bay",
+	"Hawke’s Bay": 			"Hawke's Bay",
+	"Hawkes Bay": 			"Hawke's Bay",
+	"Nelson Marlborough":	"Nelson-Marlborough",
+	"Southern DHB":			"Southern",
+}
+
 func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	ageRange, ok := ageLookup[strings.TrimSpace(r.Age)]
 	if !ok {
@@ -70,21 +79,19 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 		return fmt.Errorf("gender string \"%v\" not found in lookup table", r.Gender)
 	}
 
-	//noSpaces := strings.TrimSpace(r.Location)
-	//correctedName, ok := locationNames[noSpaces]
-	//if ok {
-	//	n.LocationName = correctedName
-	//} else {
-	//	n.LocationName = noSpaces
-	//}
-	//
+	noSpaces := strings.TrimSpace(r.Location)
+	correctedName, ok := locationNames[noSpaces]
+	if ok {
+		n.LocationName = correctedName
+	} else {
+		n.LocationName = noSpaces
+	}
+
 	//geometry, ok := locations[n.LocationName]
 	//if !ok {
 	//	return fmt.Errorf("unknown location: \"%v\"", n.LocationName)
 	//}
 	//n.LocationCentrePoint = geometry
-
-	n.LocationName = r.Location
 
 	n.Gender = gender
 	n.CaseNumber = r.Case
