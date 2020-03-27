@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/anaskhan96/soup"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -17,16 +18,15 @@ type RawCase struct {
 	CaseType	  string
 }
 
-type CaseStats struct {
-	Confirmed				int
-	Probable				int
-	Recovered				int
-	Hospitalised			int
-}
-
 type CaseStatsResponse struct {
-	CaseStatsTotal	CaseStats
-	CaseStats24h	CaseStats
+	ConfirmedCasesTotal			int
+	ConfirmedCasesNew24h		int
+	ProbableCasesTotal			int
+	ProbableCasesNew24h			int
+	RecoveredCasesTotal			int
+	RecoveredCasesNew24h		int
+	HospitalisedCasesTotal		int
+	HospitalisedCasesCurrent	int
 }
 
 func parseRow(cols []soup.Root) (RawCase, error) {
@@ -58,6 +58,41 @@ func parseStat(stat soup.Root) (int, int, error) {
 		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", tds[1].Text(), err)
 	}
 	return num, num24h, nil
+}
+
+var reHospStat = regexp.MustCompile(`(\d+)`)
+
+func parseStatHosp(stat soup.Root) (int, int, error) {
+	tds := stat.FindAll("td")
+	if len(tds) != 3 {
+		return 0, 0, fmt.Errorf("expected three columns")
+	}
+
+	contents := tds[1].Children()
+	if len(contents) != 3 {
+		return 0, 0, fmt.Errorf("expected three children in the td")
+	}
+
+	matches := reHospStat.FindStringSubmatch(contents[0].NodeValue)
+
+	if len(matches) != 2 {
+		return 0, 0, fmt.Errorf("expected two regex match elements")
+	}
+	num, err := strconv.Atoi(matches[1])
+	if err != nil {
+		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", matches[1], err)
+	}
+
+	matches = reHospStat.FindStringSubmatch(contents[2].NodeValue)
+
+	if len(matches) != 2 {
+		return 0, 0, fmt.Errorf("expected two regex match elements")
+	}
+	numCurrent, err := strconv.Atoi(matches[1])
+	if err != nil {
+		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", matches[2], err)
+	}
+	return num, numCurrent, nil
 }
 
 func ScrapeCases() ([]*RawCase, error) {
@@ -166,19 +201,19 @@ func ScrapeCaseStats() (CaseStatsResponse, error) {
 		return cS, fmt.Errorf("stats table has %v TR, not 5", len(stats))
 	}
 
-	cS.CaseStatsTotal.Confirmed, cS.CaseStats24h.Confirmed, err = parseStat(stats[1])
+	cS.ConfirmedCasesTotal, cS.ConfirmedCasesNew24h, err = parseStat(stats[1])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing confirmed cases %w", err)
 	}
-	cS.CaseStatsTotal.Probable, cS.CaseStats24h.Probable, err = parseStat(stats[2])
+	cS.ProbableCasesTotal, cS.ProbableCasesNew24h, err = parseStat(stats[2])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing probable cases %w", err)
 	}
-	cS.CaseStatsTotal.Hospitalised, cS.CaseStats24h.Hospitalised, err = parseStat(stats[4])
+	cS.HospitalisedCasesTotal, cS.HospitalisedCasesCurrent, err = parseStatHosp(stats[4])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing hospitalised cases %w", err)
 	}
-	cS.CaseStatsTotal.Recovered, cS.CaseStats24h.Recovered, err = parseStat(stats[5])
+	cS.RecoveredCasesTotal, cS.RecoveredCasesNew24h, err = parseStat(stats[5])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing recovered cases %w", err)
 	}
