@@ -109,7 +109,7 @@ func ScrapeCases() ([]*RawCase, error) {
 		}
 		c := parseRow(cols)
 		c.CaseType = "confirmed"
-		c.Case = i
+		c.Case = i+1
 		cases = append(cases, &c)
 	}
 
@@ -143,13 +143,29 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 	var sb strings.Builder
 	switch viewType {
 	case "csv":
-		sb.WriteString(`"CaseNumber", "LocationName", "AgeValid", "OlderOrEqualToAge", "YoungerThanAge"` +
-			`, "Gender", "CaseType"`)
+		sb.WriteString(
+				 `"CaseNumber",`+
+					`"ReportedDate",`+
+					`"LocationName",`+
+					`"AgeValid",`+
+					`"OlderOrEqualToAge",`+
+					`"YoungerThanAge",` +
+					`"Gender",`+
+				 	`"IsTravelRelated",`+
+				 	`"DepartureDateValid",`+
+				 	`"DepartureDate",`+
+					`"ArrivalDateValid",`+
+					`"ArrivalDate",`+
+					`"LastCityBeforeNZ",`+
+					`"FlightNumber",`+
+					`"CaseType"`,
+				)
 		sb.WriteRune('\n')
 		for _, c := range normCases {
-			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", %v, %v, "%v", "%v"`,
-				c.CaseNumber, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,
-				c.Age.YoungerThanAge, c.Gender, c.CaseType))
+			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", "%v", "%v", "%v", %v, %v, "%v", "%v", "%v", "%v", "%v", "%v", "%v", "%v"`,
+				c.CaseNumber, c.ReportedDate, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,	c.Age.YoungerThanAge, c.Gender,
+				c.IsTravelRelated.Valid, c.IsTravelRelated.Value, c.DepartureDate.Valid, c.DepartureDate.Value, c.ArrivalDate.Valid, c.ArrivalDate.Value,
+				c.LastCityBeforeNZ, c.FlightNumber, c.CaseType))
 			sb.WriteRune('\n')
 		}
 	case "json":

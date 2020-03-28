@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"time"
 )
 
 type AgeRange struct {
@@ -12,12 +13,37 @@ type AgeRange struct {
 	YoungerThanAge		int
 }
 
+type TravelRelated struct {
+	Valid               bool
+	Value               bool
+}
+
+type TravelDate struct {
+	Valid               bool
+	Value               time.Time
+}
+
+
 type NormalisedCase struct {
 	CaseNumber          int
+	ReportedDate		time.Time
 	LocationName        string
 	Age                 AgeRange
 	Gender              string
+	IsTravelRelated		TravelRelated
+	DepartureDate		TravelDate
+	ArrivalDate			TravelDate
+	LastCityBeforeNZ	string
+	FlightNumber		string
 	CaseType			string
+}
+
+var yesNoLookup = map[string]TravelRelated{
+	"yes": {Valid: true, Value: true},
+	"y": {Valid: true, Value: true},
+	"no": {Valid: true, Value: false},
+	"n": {Valid: true, Value: false},
+	"": {Valid: false, Value: false},
 }
 
 var ageLookup = map[string]AgeRange{
@@ -61,6 +87,8 @@ var locationNames = map[string]string{
 	"Southern DHB":			"Southern",
 }
 
+const TimeFormat = "2/01/2006"
+
 func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	ageRange, ok := ageLookup[strings.TrimSpace(r.Age)]
 	if !ok {
@@ -85,15 +113,50 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 		n.LocationName = noSpaces
 	}
 
+	yesNo, ok := yesNoLookup[strings.TrimSpace(strings.ToLower(r.TravelRelated))]
+	if !ok {
+		return fmt.Errorf("travel related string \"%v\" not found in lookup table", r.TravelRelated)
+	}
+
+	tz, err := time.LoadLocation("Pacific/Auckland")
+	if err != nil {
+		return fmt.Errorf("failed to load timezone: %w", tz)
+	}
+
+	reportedDate, err := time.ParseInLocation(TimeFormat, r.ReportedDate, tz)
+	if err != nil {
+		return fmt.Errorf("problem parsing reported date (%v): %w", r.ReportedDate, err)
+	}
+
+	if strings.TrimSpace(r.DepartureDate) != "" {
+		d, err := time.ParseInLocation(TimeFormat, r.DepartureDate, tz)
+		if err != nil {
+			return fmt.Errorf("problem parsing departure date (%v): %w", r.DepartureDate, err)
+		}
+		n.DepartureDate = TravelDate{Valid:true, Value:d}
+	}
+
+	if strings.TrimSpace(r.ArrivalDate) != "" {
+		d, err := time.ParseInLocation(TimeFormat, r.ArrivalDate, tz)
+		if err != nil {
+			return fmt.Errorf("problem parsing arrival date (%v): %w", r.ArrivalDate, err)
+		}
+		n.ArrivalDate = TravelDate{Valid:true, Value:d}
+	}
+
 	//geometry, ok := locations[n.LocationName]
 	//if !ok {
 	//	return fmt.Errorf("unknown location: \"%v\"", n.LocationName)
 	//}
 	//n.LocationCentrePoint = geometry
 
+	n.ReportedDate = reportedDate
 	n.Gender = gender
 	n.CaseNumber = r.Case
 	n.CaseType = r.CaseType
+	n.IsTravelRelated = yesNo
+	n.LastCityBeforeNZ = r.LastCityBeforeNZ
+	n.FlightNumber = r.FlightNumber
 
 	return nil
 }
