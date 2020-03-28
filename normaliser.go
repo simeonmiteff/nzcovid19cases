@@ -83,8 +83,54 @@ var locationNames = map[string]string{
 	"Hawkes’s Bay": 		"Hawke's Bay",
 	"Hawke’s Bay": 			"Hawke's Bay",
 	"Hawkes Bay": 			"Hawke's Bay",
-	"Nelson Marlborough":	"Nelson-Marlborough",
+	"Nelson-Marlborough":	"Nelson Marlborough",
 	"Southern DHB":			"Southern",
+}
+
+var validDHBs = map[string]bool{
+	"Auckland":true,
+	"Bay of Plenty":true,
+	"Canterbury":true,
+	"Capital and Coast":true,
+	"Counties Manukau":true,
+	"Hawke's Bay":true,
+	"Hutt Valley":true,
+	"Lakes":true,
+	"MidCentral":true,
+	"Nelson Marlborough":true,
+	"Northland":true,
+	"South Canterbury":true,
+	"Southern":true,
+	"Tairawhiti":true,
+	"Taranaki":true,
+	"Waikato":true,
+	"Wairarapa":true,
+	"Waitemata":true,
+	"West Coast":true,
+	"Whanganui":true,
+}
+
+var ValidDHBsList =[]string{
+	"Auckland",
+	"Bay of Plenty",
+	"Canterbury",
+	"Capital and Coast",
+	"Counties Manukau",
+	"Hawke's Bay",
+	"Hutt Valley",
+	"Lakes",
+	"MidCentral",
+	"Nelson Marlborough",
+	"Northland",
+	"South Canterbury",
+	"Southern",
+	"Tairawhiti",
+	"Taranaki",
+	"Waikato",
+	"Wairarapa",
+	"Waitemata",
+	"West Coast",
+	"Whanganui",
 }
 
 const TimeFormat = "2/01/2006"
@@ -108,6 +154,10 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	noSpaces := strings.TrimSpace(r.Location)
 	correctedName, ok := locationNames[noSpaces]
 	if ok {
+		_, ok = validDHBs[correctedName]
+		if !ok {
+			return fmt.Errorf("DHB name \"%v\" not found in lookup table", correctedName)
+		}
 		n.LocationName = correctedName
 	} else {
 		n.LocationName = noSpaces
