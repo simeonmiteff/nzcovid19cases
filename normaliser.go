@@ -45,7 +45,7 @@ var genderLookup = map[string]string{
 	"Not provided":     "Unknown or undisclosed",
 }
 
-var levelLoopup = map[int]string {
+var levelLookup = map[int]string {
 	1:"Prepare",
 	2:"Reduce",
 	3:"Restrict",

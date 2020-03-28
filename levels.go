@@ -38,7 +38,7 @@ func ScrapeLevel() (int, string, error) {
 		return 0, "", fmt.Errorf("could not convert level (%v) to int: %w", levelString, err)
 	}
 
-	levelName, ok := levelLoopup[levelInt]
+	levelName, ok := levelLookup[levelInt]
 	if !ok {
 		return 0, "", fmt.Errorf("could not look up level name from level (%v) : %w", levelInt, err)
 	}
