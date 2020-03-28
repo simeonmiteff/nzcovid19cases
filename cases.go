@@ -68,26 +68,16 @@ func parseStatHosp(stat soup.Root) (int, int, error) {
 		return 0, 0, fmt.Errorf("expected three columns")
 	}
 
-	contents := tds[1].Children()
-	if len(contents) != 3 {
-		return 0, 0, fmt.Errorf("expected three children in the td")
-	}
-
-	matches := reHospStat.FindStringSubmatch(contents[0].NodeValue)
+	matches := reHospStat.FindStringSubmatch(tds[1].Text())
 
 	if len(matches) != 2 {
 		return 0, 0, fmt.Errorf("expected two regex match elements")
 	}
-	num, err := strconv.Atoi(matches[1])
+	num, err := strconv.Atoi(matches[0])
 	if err != nil {
 		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", matches[1], err)
 	}
 
-	matches = reHospStat.FindStringSubmatch(contents[2].NodeValue)
-
-	if len(matches) != 2 {
-		return 0, 0, fmt.Errorf("expected two regex match elements")
-	}
 	numCurrent, err := strconv.Atoi(matches[1])
 	if err != nil {
 		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", matches[2], err)
