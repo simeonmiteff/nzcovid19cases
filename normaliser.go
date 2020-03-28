@@ -9,33 +9,31 @@ import (
 type AgeRange struct {
 	Valid               bool
 	OlderOrEqualToAge   int
-	YoungerOrEqualToAge int
+	YoungerThanAge		int
 }
 
 type NormalisedCase struct {
 	CaseNumber          int
 	LocationName        string
-	Age                       AgeRange
-	Gender                    string
-	TravelDetailsUnstructured string
-	CaseType				  string
+	Age                 AgeRange
+	Gender              string
+	CaseType			string
 }
 
 var ageLookup = map[string]AgeRange{
-	"Child": {Valid: true, OlderOrEqualToAge: 0, YoungerOrEqualToAge: 12},
-	"Teens": {Valid: true, OlderOrEqualToAge: 13, YoungerOrEqualToAge: 19}, // Does the MOH use 13-19?
-	"Teen":  {Valid: true, OlderOrEqualToAge: 13, YoungerOrEqualToAge: 19}, // Does the MOH use 13-19?
-	"20s":   {Valid: true, OlderOrEqualToAge: 20, YoungerOrEqualToAge: 29},
-	"30s":   {Valid: true, OlderOrEqualToAge: 30, YoungerOrEqualToAge: 39},
-	"40s":   {Valid: true, OlderOrEqualToAge: 40, YoungerOrEqualToAge: 49},
-	"50s":   {Valid: true, OlderOrEqualToAge: 50, YoungerOrEqualToAge: 59},
-	"60s":   {Valid: true, OlderOrEqualToAge: 60, YoungerOrEqualToAge: 69},
-	"70s":   {Valid: true, OlderOrEqualToAge: 70, YoungerOrEqualToAge: 79},
-	// Not seen in the data (yet)
-	"80s":  {Valid: true, OlderOrEqualToAge: 80, YoungerOrEqualToAge: 89},
-	"90s":  {Valid: true, OlderOrEqualToAge: 90, YoungerOrEqualToAge: 99},
-	"100s": {Valid: true, OlderOrEqualToAge: 100, YoungerOrEqualToAge: 109},
-	"Unknown":    {Valid: false, OlderOrEqualToAge: 0, YoungerOrEqualToAge: 0},
+	"<1":         {Valid: true, OlderOrEqualToAge: 0, YoungerThanAge: 1},
+	"1 to 4":     {Valid: true, OlderOrEqualToAge: 1, YoungerThanAge: 4},
+	"5 to 9":     {Valid: true, OlderOrEqualToAge: 1, YoungerThanAge: 4},
+	"10 to 14":   {Valid: true, OlderOrEqualToAge: 10, YoungerThanAge: 14},
+	"15 to 19":   {Valid: true, OlderOrEqualToAge: 15, YoungerThanAge: 19},
+	"20 to 29":   {Valid: true, OlderOrEqualToAge: 20, YoungerThanAge: 29},
+	"30 to 39":   {Valid: true, OlderOrEqualToAge: 30, YoungerThanAge: 39},
+	"40 to 49":   {Valid: true, OlderOrEqualToAge: 40, YoungerThanAge: 49},
+	"50 to 59":   {Valid: true, OlderOrEqualToAge: 50, YoungerThanAge: 59},
+	"60 to 69":   {Valid: true, OlderOrEqualToAge: 60, YoungerThanAge: 69},
+	"70+":        {Valid: true, OlderOrEqualToAge: 70, YoungerThanAge: 110},
+	"Unknown":    {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
+	"":          {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
 }
 
 var genderLookup = map[string]string{
@@ -66,9 +64,9 @@ var locationNames = map[string]string{
 func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	ageRange, ok := ageLookup[strings.TrimSpace(r.Age)]
 	if !ok {
-		exactAge, err := strconv.Atoi(r.Age)
+		exactAge, err := strconv.Atoi(strings.TrimSpace(r.Age))
 		if err == nil {
-			ageRange = AgeRange{Valid: true, OlderOrEqualToAge: exactAge, YoungerOrEqualToAge: exactAge}
+			ageRange = AgeRange{Valid: true, OlderOrEqualToAge: exactAge, YoungerThanAge: exactAge}
 		} else {
 			return fmt.Errorf("age string \"%v\" not found in lookup table", r.Age)
 		}
@@ -96,8 +94,6 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	n.Gender = gender
 	n.CaseNumber = r.Case
 	n.CaseType = r.CaseType
-
-	n.TravelDetailsUnstructured = r.TravelDetails
 
 	return nil
 }

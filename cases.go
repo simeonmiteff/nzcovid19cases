@@ -10,12 +10,17 @@ import (
 )
 
 type RawCase struct {
-	Case          int
-	Location      string
-	Age           string
-	Gender        string
-	TravelDetails string
-	CaseType	  string
+	ReportedDate		string
+	Case          		int
+	Location      		string
+	Age           		string
+	Gender        		string
+	TravelRelated		string
+	LastCityBeforeNZ	string
+	FlightNumber		string
+	DepartureDate		string
+	ArrivalDate			string
+	CaseType			string
 }
 
 type CaseStatsResponse struct {
@@ -29,18 +34,18 @@ type CaseStatsResponse struct {
 	HospitalisedCasesCurrent	int
 }
 
-func parseRow(cols []soup.Root) (RawCase, error) {
+func parseRow(cols []soup.Root) RawCase {
 	var c RawCase
-	caseNum, err := strconv.Atoi(cols[0].Text())
-	if err != nil {
-		return c, fmt.Errorf("failed to convert %v to case number: %w", cols[0].Text(), err)
-	}
-	c.Case = caseNum
-	c.Location = cols[1].Text()
+	c.ReportedDate = cols[0].Text()
+	c.Gender = cols[1].Text()
 	c.Age = cols[2].Text()
-	c.Gender = cols[3].Text()
-	c.TravelDetails = cols[4].Text()
-	return c, nil
+	c.Location = cols[3].Text()
+	c.TravelRelated = cols[4].Text()
+	c.LastCityBeforeNZ = cols[5].Text()
+	c.FlightNumber = cols[6].Text()
+	c.DepartureDate = cols[7].Text()
+	c.ArrivalDate = cols[8].Text()
+	return c
 }
 
 
@@ -99,20 +104,27 @@ func ScrapeCases() ([]*RawCase, error) {
 	// Note: slice starting at 1, skipping the header
 	for i, row := range rows[1:] {
 		cols := row.FindAll("td")
-		// This deals with the colspan=5 row that appeared
-		if len(cols) == 1 {
-			continue
+		if len(cols) != 9 {
+			return nil, fmt.Errorf("table 1 row has %v columns, not 9", len(cols))
 		}
-		if len(cols) != 5 {
-			return nil, fmt.Errorf("table 1 row has %v columns, not 5", len(cols))
+		c := parseRow(cols)
+		c.CaseType = "confirmed"
+		c.Case = i
+		cases = append(cases, &c)
+	}
+
+	rows = tables[1].FindAll("tr")
+
+	// Note: slice starting at 1, skipping the header
+	for i, row := range rows[1:] {
+		cols := row.FindAll("td")
+		if len(cols) != 9 {
+			return nil, fmt.Errorf("table 1 row has %v columns, not 9", len(cols))
 		}
-		c, err := parseRow(cols)
-		if err != nil {
-			return nil, fmt.Errorf("table 1 problem parsing row %v from html table: %w", i, err)
-		} else {
-			c.CaseType = "confirmed"
-			cases = append(cases, &c)
-		}
+		c := parseRow(cols)
+		c.CaseType = "probable"
+		c.Case = i
+		cases = append(cases, &c)
 	}
 
 	return cases, nil
@@ -131,14 +143,13 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 	var sb strings.Builder
 	switch viewType {
 	case "csv":
-		sb.WriteString(`"CaseNumber", "LocationName", "AgeValid", "OlderOrEqualToAge", "YoungerOrEqualToAge"` +
-			`,"Gender", "TravelDetailsUnstructured", "CaseType"`)
+		sb.WriteString(`"CaseNumber", "LocationName", "AgeValid", "OlderOrEqualToAge", "YoungerThanAge"` +
+			`, "Gender", "CaseType"`)
 		sb.WriteRune('\n')
 		for _, c := range normCases {
-			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", %v, %v, "%v", "%v", "%v"`,
+			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", %v, %v, "%v", "%v"`,
 				c.CaseNumber, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,
-				c.Age.YoungerOrEqualToAge, c.Gender, c.TravelDetailsUnstructured,
-				c.CaseType))
+				c.Age.YoungerThanAge, c.Gender, c.CaseType))
 			sb.WriteRune('\n')
 		}
 	case "json":
