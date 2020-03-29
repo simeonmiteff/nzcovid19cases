@@ -97,7 +97,7 @@ func ScrapeCases() ([]*RawCase, error) {
 	}
 	doc := soup.HTMLParse(resp)
 	tables := doc.FindAll("table", "class", "table-style-two")
-	var offset = 1
+	var offset = 0
 	if len(tables) > 2 {
 		offset = 1
 	}
