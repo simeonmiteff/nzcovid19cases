@@ -32,6 +32,8 @@ type CaseStatsResponse struct {
 	RecoveredCasesNew24h		int
 	HospitalisedCasesTotal		int
 	HospitalisedCasesCurrent	int
+	DeathCasesTotal				int
+	DeathCasesNew24h			int
 }
 
 func parseRow(cols []soup.Root) RawCase {
@@ -57,6 +59,9 @@ func parseStat(stat soup.Root) (int, int, error) {
 	num, err := strconv.Atoi(tds[1].Text())
 	if err != nil {
 		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", tds[1].Text(), err)
+	}
+	if strings.TrimSpace(tds[2].Text()) == "" {
+		return num, 0, nil
 	}
 	num24h, err := strconv.Atoi(tds[2].Text())
 	if err != nil {
@@ -218,8 +223,8 @@ func ScrapeCaseStats() (CaseStatsResponse, error) {
 		return cS, fmt.Errorf("found %v tables, not 3", len(tables))
 	}
 
-	if len(stats) != 6 {
-		return cS, fmt.Errorf("stats table has %v TR, not 5", len(stats))
+	if len(stats) != 7 {
+		return cS, fmt.Errorf("stats table has %v TR, not 7", len(stats))
 	}
 
 	cS.ConfirmedCasesTotal, cS.ConfirmedCasesNew24h, err = parseStat(stats[1])
@@ -237,6 +242,10 @@ func ScrapeCaseStats() (CaseStatsResponse, error) {
 	cS.RecoveredCasesTotal, cS.RecoveredCasesNew24h, err = parseStat(stats[5])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing recovered cases %w", err)
+	}
+	cS.DeathCasesTotal, cS.DeathCasesNew24h, err = parseStat(stats[6])
+	if err != nil {
+		return cS, fmt.Errorf("problem parsing dead cases %w", err)
 	}
 
 	return cS, nil
