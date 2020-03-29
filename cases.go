@@ -219,9 +219,9 @@ func ScrapeCaseStats() (CaseStatsResponse, error) {
 	tables := doc.FindAll("table")
 	stats := tables[0].FindAll("tr")
 
-	if len(tables) != 3 {
-		return cS, fmt.Errorf("found %v tables, not 3", len(tables))
-	}
+	//if len(tables) != 3 {
+	//	return cS, fmt.Errorf("found %v tables, not 3", len(tables))
+	//}
 
 	if len(stats) != 7 {
 		return cS, fmt.Errorf("stats table has %v TR, not 7", len(stats))
