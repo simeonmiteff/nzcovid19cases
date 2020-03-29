@@ -97,8 +97,12 @@ func ScrapeCases() ([]*RawCase, error) {
 	}
 	doc := soup.HTMLParse(resp)
 	tables := doc.FindAll("table", "class", "table-style-two")
+	var offset = 1
+	if len(tables) > 2 {
+		offset = 1
+	}
 
-	rows := tables[1].FindAll("tr")
+	rows := tables[offset].FindAll("tr")
 	var cases []*RawCase
 
 	// Note: slice starting at 1, skipping the header
@@ -113,7 +117,7 @@ func ScrapeCases() ([]*RawCase, error) {
 		cases = append(cases, &c)
 	}
 
-	rows = tables[2].FindAll("tr")
+	rows = tables[offset+1].FindAll("tr")
 
 	// Note: slice starting at 1, skipping the header
 	for i, row := range rows[1:] {
