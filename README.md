@@ -28,9 +28,13 @@ Usage: ./cmd/nzcovid19-cli/nzcovid19-cli <action>
 	Where <action> is one of:
 		- cases/json
 		- cases/csv
+		- locations/json
+		- locations/csv
 		- alertlevel/json
 		- grants/json
 		- casestats/json
+		- clusters/json
+		- clusters/csv
 ```
 
 ## Code license

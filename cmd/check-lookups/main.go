@@ -43,4 +43,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	clusters, err := nzcovid19cases.ScrapeClusters()
+	_, err = nzcovid19cases.RenderClusters(clusters, "json")
+	if err != nil {
+		panic(err)
+	}
 }

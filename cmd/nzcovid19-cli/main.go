@@ -19,6 +19,8 @@ Usage: %v <action>
 		- alertlevel/json
 		- grants/json
 		- casestats/json
+		- clusters/json
+		- clusters/csv
 `, os.Args[0])
 	os.Exit(1)
 }
@@ -46,6 +48,7 @@ func main() {
 		"locations": true,
 		"alertlevel": true,
 		"grants": true,
+		"clusters": true,
 	}
 
 	if !validDataTypes[dataType] {
@@ -97,6 +100,12 @@ func main() {
 			abort(err, 3)
 		}
 		result, err = nzcovid19cases.RenderCaseStats(caseStats, "json")
+	case "clusters":
+		clusters, err := nzcovid19cases.ScrapeClusters()
+		if err != nil {
+			abort(err, 3)
+		}
+		result, err = nzcovid19cases.RenderClusters(clusters, viewType)
 	}
 
 	if err != nil {
