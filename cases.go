@@ -118,7 +118,7 @@ func ScrapeCases() ([]*RawCase, error) {
 		}
 		c := parseRow(cols)
 		c.CaseType = "confirmed"
-		c.Case = i+1
+		c.Case = len(rows)-i-1
 		cases = append(cases, &c)
 	}
 
@@ -132,7 +132,7 @@ func ScrapeCases() ([]*RawCase, error) {
 		}
 		c := parseRow(cols)
 		c.CaseType = "probable"
-		c.Case = i
+		c.Case = len(rows)-i-1
 		cases = append(cases, &c)
 	}
 
