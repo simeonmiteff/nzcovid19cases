@@ -27,6 +27,9 @@ func main() {
 	}
 	locations := nzcovid19cases.BuildLocations(normCases)
 	_, err = nzcovid19cases.RenderLocations(locations, "json")
+	if err != nil {
+		panic(err)
+	}
 	levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
 	if err != nil {
 		panic(err)
@@ -44,8 +47,9 @@ func main() {
 		panic(err)
 	}
 	clusters, err := nzcovid19cases.ScrapeClusters()
-	_, err = nzcovid19cases.RenderClusters(clusters, "json")
 	if err != nil {
 		panic(err)
 	}
+	_, err = nzcovid19cases.RenderClusters(clusters, "json")
+
 }

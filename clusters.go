@@ -10,7 +10,9 @@ import (
 
 type Cluster struct {
 	Name  string
+	Location string
 	Cases int
+	CasesNew24h int
 }
 
 func ScrapeClusters() ([]*Cluster, error) {
@@ -33,9 +35,14 @@ func ScrapeClusters() ([]*Cluster, error) {
 		var c Cluster
 		tds := tr.FindAll("td")
 		c.Name = strings.TrimSpace(tds[0].Text())
-		c.Cases, err = strconv.Atoi(strings.TrimSpace(tds[1].Text()))
+		c.Location = strings.TrimSpace(tds[1].Text())
+		c.Cases, err = strconv.Atoi(strings.TrimSpace(tds[2].Text()))
 		if err != nil {
-			return clusters,fmt.Errorf("on row %v could not convert case count (%v) to int", i, tds[1].Text())
+			return clusters,fmt.Errorf("on row %v could not convert case count (%v) to int", i, tds[2].Text())
+		}
+		c.CasesNew24h, err = strconv.Atoi(strings.TrimSpace(strings.Replace(tds[3].Text(),"*","", 1)))
+		if err != nil {
+			return clusters,fmt.Errorf("on row %v could not convert new case count (%v) to int", i, tds[3].Text())
 		}
 		clusters[i] = &c
 	}
@@ -61,10 +68,10 @@ func RenderClusters(clusters []*Cluster, viewType string) (string, error) {
 		}
 		sb.Write(b)
 	case "csv":
-		sb.WriteString(`"Name", "Cases"`)
+		sb.WriteString(`"Name", "Location", "Cases", "CasesNew24h"`)
 		sb.WriteRune('\n')
 		for _, c := range clusters {
-			sb.WriteString(fmt.Sprintf(`"%v", %v`, c.Name, c.Cases))
+			sb.WriteString(fmt.Sprintf(`"%v", %v`, c.Name, c.Location, c.Cases, c.CasesNew24h))
 			sb.WriteRune('\n')
 		}
 	}
