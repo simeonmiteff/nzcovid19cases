@@ -44,6 +44,7 @@ var yesNoLookup = map[string]TravelRelated{
 	"no": {Valid: true, Value: false},
 	"n": {Valid: true, Value: false},
 	"": {Valid: false, Value: false},
+	"unknown": {Valid: false, Value: false},
 }
 
 var ageLookup = map[string]AgeRange{
@@ -57,6 +58,7 @@ var ageLookup = map[string]AgeRange{
 	"40 to 49":   {Valid: true, OlderOrEqualToAge: 40, YoungerThanAge: 49},
 	"50 to 59":   {Valid: true, OlderOrEqualToAge: 50, YoungerThanAge: 59},
 	"60 to 69":   {Valid: true, OlderOrEqualToAge: 60, YoungerThanAge: 69},
+	"60 to 69":   {Valid: true, OlderOrEqualToAge: 60, YoungerThanAge: 69}, // Unicode spaces
 	"70+":        {Valid: true, OlderOrEqualToAge: 70, YoungerThanAge: 110},
 	"Unknown":    {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
 	"":          {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
