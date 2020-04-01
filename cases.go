@@ -78,6 +78,10 @@ func parseStatHosp(stat soup.Root) (int, int, error) {
 		return 0, 0, fmt.Errorf("expected three columns")
 	}
 
+	if strings.TrimSpace(tds[1].Text()) == "" {
+		return 0, 0, nil
+	}
+
 	matches := reHospStat.FindStringSubmatch(tds[1].Text())
 
 	if len(matches) != 2 {

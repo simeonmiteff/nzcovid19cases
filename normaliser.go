@@ -54,9 +54,11 @@ var ageLookup = map[string]AgeRange{
 	"10 to 14":   {Valid: true, OlderOrEqualToAge: 10, YoungerThanAge: 14},
 	"15 to 19":   {Valid: true, OlderOrEqualToAge: 15, YoungerThanAge: 19},
 	"20 to 29":   {Valid: true, OlderOrEqualToAge: 20, YoungerThanAge: 29},
+	"20 to 29":   {Valid: true, OlderOrEqualToAge: 20, YoungerThanAge: 29}, // FUUUUU
 	"30 to 39":   {Valid: true, OlderOrEqualToAge: 30, YoungerThanAge: 39},
 	"40 to 49":   {Valid: true, OlderOrEqualToAge: 40, YoungerThanAge: 49},
 	"50 to 59":   {Valid: true, OlderOrEqualToAge: 50, YoungerThanAge: 59},
+	"50 to 59":   {Valid: true, OlderOrEqualToAge: 50, YoungerThanAge: 59}, // FfffUUUUUU!
 	"60 to 69":   {Valid: true, OlderOrEqualToAge: 60, YoungerThanAge: 69},
 	"60 to 69":   {Valid: true, OlderOrEqualToAge: 60, YoungerThanAge: 69}, // Unicode spaces
 	"70+":        {Valid: true, OlderOrEqualToAge: 70, YoungerThanAge: 110},
