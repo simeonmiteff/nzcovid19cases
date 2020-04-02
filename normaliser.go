@@ -2,6 +2,7 @@ package nzcovid19cases
 
 import (
 	"fmt"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -47,20 +48,10 @@ var yesNoLookup = map[string]TravelRelated{
 	"unknown": {Valid: false, Value: false},
 }
 
+var reAgeRange = regexp.MustCompile(`(\d+)`)
+
 var ageLookup = map[string]AgeRange{
 	"<1":         {Valid: true, OlderOrEqualToAge: 0, YoungerThanAge: 1},
-	"1 to 4":     {Valid: true, OlderOrEqualToAge: 1, YoungerThanAge: 4},
-	"5 to 9":     {Valid: true, OlderOrEqualToAge: 1, YoungerThanAge: 4},
-	"10 to 14":   {Valid: true, OlderOrEqualToAge: 10, YoungerThanAge: 14},
-	"15 to 19":   {Valid: true, OlderOrEqualToAge: 15, YoungerThanAge: 19},
-	"20 to 29":   {Valid: true, OlderOrEqualToAge: 20, YoungerThanAge: 29},
-	"20 to 29":   {Valid: true, OlderOrEqualToAge: 20, YoungerThanAge: 29}, // FUUUUU
-	"30 to 39":   {Valid: true, OlderOrEqualToAge: 30, YoungerThanAge: 39},
-	"40 to 49":   {Valid: true, OlderOrEqualToAge: 40, YoungerThanAge: 49},
-	"50 to 59":   {Valid: true, OlderOrEqualToAge: 50, YoungerThanAge: 59},
-	"50 to 59":   {Valid: true, OlderOrEqualToAge: 50, YoungerThanAge: 59}, // FfffUUUUUU!
-	"60 to 69":   {Valid: true, OlderOrEqualToAge: 60, YoungerThanAge: 69},
-	"60 to 69":   {Valid: true, OlderOrEqualToAge: 60, YoungerThanAge: 69}, // Unicode spaces
 	"70+":        {Valid: true, OlderOrEqualToAge: 70, YoungerThanAge: 110},
 	"Unknown":    {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
 	"":          {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
@@ -140,15 +131,35 @@ var ValidDHBsList =[]string{
 const TimeFormat = "2/01/2006"
 
 func (n *NormalisedCase) FromRaw(r *RawCase) error {
-	ageRange, ok := ageLookup[strings.TrimSpace(r.Age)]
-	if !ok {
-		exactAge, err := strconv.Atoi(strings.TrimSpace(r.Age))
-		if err == nil {
-			ageRange = AgeRange{Valid: true, OlderOrEqualToAge: exactAge, YoungerThanAge: exactAge}
-		} else {
-			return fmt.Errorf("age string \"%v\" not found in lookup table", r.Age)
+
+	age := strings.TrimSpace(r.Age)
+
+	var ageRange AgeRange
+	var ok bool
+	matches := reAgeRange.FindAllString(age, 2)
+	if len(matches) != 2 {
+
+		ageRange, ok = ageLookup[age]
+		if !ok {
+			exactAge, err := strconv.Atoi(age)
+			if err == nil {
+				ageRange = AgeRange{Valid: true, OlderOrEqualToAge: exactAge, YoungerThanAge: exactAge}
+			} else {
+				return fmt.Errorf("age string \"%v\" not found in lookup table", age)
+			}
 		}
+	} else {
+		num1, err := strconv.Atoi(matches[0])
+		if err != nil {
+			return fmt.Errorf("failed to convert %v to number: %w", matches[0], err)
+		}
+		num2, err := strconv.Atoi(matches[1])
+		if err != nil {
+			return fmt.Errorf("failed to convert %v to number: %w", matches[1], err)
+		}
+		ageRange = AgeRange{Valid: true, OlderOrEqualToAge: num1, YoungerThanAge: num2}
 	}
+
 	n.Age = ageRange
 	gender, ok := genderLookup[strings.TrimSpace(r.Gender)]
 	if !ok {
