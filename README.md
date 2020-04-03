@@ -18,13 +18,27 @@ Courtesy of @gizmoguy, the metrics exported are scraped by a Prometheus server, 
 
 ## Building
 
-Building requires a go 1.13+ toolchain.
+### Building directly
 
-`./build.sh`
+To build the utilities, you'll need a go 1.13+ toolchain installed (check out https://golang.org/dl/ for details).
+
+Running `./build.sh` will build each tool in the `cmd/` subdirectories.
+
+### Building with Docker
+
+If you don't want to futz with Go, a Dockerfile is provided. Use [docker](https://docs.docker.com/install/) to build a container:
+
+```
+$ docker build -t nzcovid19cases .
+<snip>
+Successfully tagged nzcovid19cases:latest
+```
 
 ## Usage
 
-For now there is a CLI tool:
+For now there is a CLI tool.
+
+### Running the directly built binaries
 
 ```
 cmd/nzcovid19-cli$ ./nzcovid19-cli 
@@ -40,6 +54,16 @@ Usage: ./cmd/nzcovid19-cli/nzcovid19-cli <action>
 		- casestats/json
 		- clusters/json
 		- clusters/csv
+```
+
+## Running the docker container
+
+```
+$ docker run -ti --rm nzcovid19cases alertlevel/json
+{
+  "Level": 4,
+  "LevelName": "Eliminate"
+}
 ```
 
 ## Code license
