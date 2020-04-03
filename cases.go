@@ -44,9 +44,9 @@ func parseRow(cols []soup.Root) RawCase {
 	c.Location = cols[3].Text()
 	c.TravelRelated = cols[4].Text()
 	c.LastCityBeforeNZ = cols[5].Text()
-	c.ArrivalDate = cols[6].Text()
-	c.DepartureDate = cols[7].Text()
-	c.FlightNumber = cols[8].Text()
+	c.FlightNumber = cols[6].Text()
+	c.ArrivalDate = cols[7].Text()
+	c.DepartureDate = cols[8].Text()
 	return c
 }
 
