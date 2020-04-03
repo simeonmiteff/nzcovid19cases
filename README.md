@@ -11,6 +11,11 @@ Use this with caution - the NZ government may change their pages and break the s
 
 This code is used as the core of an API service I'm running: https://nzcovid19api.xerra.nz/
 
+Courtesy of @gizmoguy, the metrics exported are scraped by a Prometheus server, and visualised on a 
+[Grafana dashboard](https://nzcovid19.grafana.sla.ac/d/r4XZV79Wz/new-zealand-covid-19-tracker?orgId=1):
+
+![Screenshot of COVID-19 Grafana dashboard at https://nzcovid19.grafana.sla.ac/d/r4XZV79Wz/new-zealand-covid-19-tracker?orgId=1](doc/grafana_screenshot.png "Screenshot of COVID-19 Grafana dashboard")
+
 ## Building
 
 Building requires a go 1.13+ toolchain.
