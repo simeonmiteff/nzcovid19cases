@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/anaskhan96/soup"
-	"regexp"
 	"strconv"
 	"strings"
 )
@@ -31,7 +30,7 @@ type CaseStatsResponse struct {
 	RecoveredCasesTotal			int
 	RecoveredCasesNew24h		int
 	HospitalisedCasesTotal		int
-	HospitalisedCasesCurrent	int
+	HospitalisedCasesNew24h		int
 	DeathCasesTotal				int
 	DeathCasesNew24h			int
 }
@@ -53,51 +52,53 @@ func parseRow(cols []soup.Root) RawCase {
 
 func parseStat(stat soup.Root) (int, int, error) {
 	tds := stat.FindAll("td")
-	if len(tds) != 3 {
-		return 0, 0, fmt.Errorf("expected three columns")
+
+	if len(tds) != 2 {
+		return 0, 0, fmt.Errorf("expected two columns")
 	}
-	num, err := strconv.Atoi(tds[1].Text())
+	num, err := strconv.Atoi(tds[0].Text())
 	if err != nil {
 		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", tds[1].Text(), err)
 	}
-	if strings.TrimSpace(tds[2].Text()) == "" {
+	if strings.TrimSpace(tds[1].Text()) == "" {
 		return num, 0, nil
 	}
-	num24h, err := strconv.Atoi(tds[2].Text())
+	num24h, err := strconv.Atoi(tds[1].Text())
 	if err != nil {
 		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", tds[1].Text(), err)
 	}
 	return num, num24h, nil
 }
 
-var reHospStat = regexp.MustCompile(`(\d+)`)
-
-func parseStatHosp(stat soup.Root) (int, int, error) {
-	tds := stat.FindAll("td")
-	if len(tds) != 3 {
-		return 0, 0, fmt.Errorf("expected three columns")
-	}
-
-	if strings.TrimSpace(tds[1].Text()) == "" {
-		return 0, 0, nil
-	}
-
-	matches := reHospStat.FindStringSubmatch(tds[1].Text())
-
-	if len(matches) != 2 {
-		return 0, 0, fmt.Errorf("expected two regex match elements")
-	}
-	num, err := strconv.Atoi(matches[0])
-	if err != nil {
-		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", matches[1], err)
-	}
-
-	numCurrent, err := strconv.Atoi(matches[1])
-	if err != nil {
-		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", matches[2], err)
-	}
-	return num, numCurrent, nil
-}
+//var reHospStat = regexp.MustCompile(`(\d+)`)
+//
+//func parseStatHosp(stat soup.Root) (int, int, error) {
+//	tds := stat.FindAll("td")
+//	if len(tds) != 2 {
+//		return 0, 0, fmt.Errorf("expected two columns")
+//	}
+//
+//	if strings.TrimSpace(tds[0].Text()) == "" {
+//		return 0, 0, nil
+//	}
+//
+//	matches := reHospStat.FindStringSubmatch(tds[0].Text())
+//	fmt.Println(matches)
+//
+//	if len(matches) != 2 {
+//		return 0, 0, fmt.Errorf("expected two regex match elements")
+//	}
+//	num, err := strconv.Atoi(matches[0])
+//	if err != nil {
+//		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", matches[1], err)
+//	}
+//
+//	numCurrent, err := strconv.Atoi(matches[1])
+//	if err != nil {
+//		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", matches[2], err)
+//	}
+//	return num, numCurrent, nil
+//}
 
 func ScrapeCases() ([]*RawCase, error) {
 	resp, err := soup.Get("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-cases/covid-19-current-cases-details")
@@ -239,7 +240,7 @@ func ScrapeCaseStats() (CaseStatsResponse, error) {
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing probable cases %w", err)
 	}
-	cS.HospitalisedCasesTotal, cS.HospitalisedCasesCurrent, err = parseStatHosp(stats[4])
+	cS.HospitalisedCasesTotal, cS.HospitalisedCasesNew24h, err = parseStat(stats[4]) //parseStatHosp(stats[4])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing hospitalised cases %w", err)
 	}
