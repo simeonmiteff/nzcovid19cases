@@ -16,17 +16,17 @@ type AlertLevel struct {
 var re = regexp.MustCompile(`(?m)Level (\d)`)
 
 func ScrapeLevel() (int, string, error) {
-	resp, err := soup.Get("https://covid19.govt.nz/government-actions/covid-19-alert-level")
+	resp, err := soup.Get("https://covid19.govt.nz/")
 	if err != nil {
 		return 0, "", err
 	}
 	doc := soup.HTMLParse(resp)
-	div := doc.Find("div", "class", "hero-statement")
-	if div.Error != nil {
-		return 0, "", fmt.Errorf("could not find div")
+	h3 := doc.Find("h3")
+	if h3.Error != nil {
+		return 0, "", fmt.Errorf("could not find h3")
 	}
 
-	matches := re.FindStringSubmatch(div.Text())
+	matches := re.FindStringSubmatch(h3.Text())
 	if len(matches) != 2 {
 		return 0, "", fmt.Errorf("expected two match elements")
 	}
