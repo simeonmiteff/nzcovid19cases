@@ -71,7 +71,7 @@ func RenderClusters(clusters []*Cluster, viewType string) (string, error) {
 		sb.WriteString(`"Name", "Location", "Cases", "CasesNew24h"`)
 		sb.WriteRune('\n')
 		for _, c := range clusters {
-			sb.WriteString(fmt.Sprintf(`"%v", %v`, c.Name, c.Location, c.Cases, c.CasesNew24h))
+			sb.WriteString(fmt.Sprintf(`"%v", "%v", %v, %v`, c.Name, c.Location, c.Cases, c.CasesNew24h))
 			sb.WriteRune('\n')
 		}
 	}
