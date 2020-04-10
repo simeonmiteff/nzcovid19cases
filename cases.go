@@ -9,30 +9,30 @@ import (
 )
 
 type RawCase struct {
-	ReportedDate		string
-	Case          		int
-	Location      		string
-	Age           		string
-	Gender        		string
-	TravelRelated		string
-	LastCityBeforeNZ	string
-	FlightNumber		string
-	DepartureDate		string
-	ArrivalDate			string
-	CaseType			string
+	ReportedDate     string
+	Case             int
+	Location         string
+	Age              string
+	Gender           string
+	TravelRelated    string
+	LastCityBeforeNZ string
+	FlightNumber     string
+	DepartureDate    string
+	ArrivalDate      string
+	CaseType         string
 }
 
 type CaseStatsResponse struct {
-	ConfirmedCasesTotal			int
-	ConfirmedCasesNew24h		int
-	ProbableCasesTotal			int
-	ProbableCasesNew24h			int
-	RecoveredCasesTotal			int
-	RecoveredCasesNew24h		int
-	HospitalisedCasesTotal		int
-	HospitalisedCasesNew24h		int
-	DeathCasesTotal				int
-	DeathCasesNew24h			int
+	ConfirmedCasesTotal     int
+	ConfirmedCasesNew24h    int
+	ProbableCasesTotal      int
+	ProbableCasesNew24h     int
+	RecoveredCasesTotal     int
+	RecoveredCasesNew24h    int
+	HospitalisedCasesTotal  int
+	HospitalisedCasesNew24h int
+	DeathCasesTotal         int
+	DeathCasesNew24h        int
 }
 
 func parseRow(cols []soup.Root) RawCase {
@@ -42,7 +42,7 @@ func parseRow(cols []soup.Root) RawCase {
 	c.Age = cols[2].Text()
 	c.Location = cols[3].Text()
 	// Handle case with erroneous colspan
-	_, sigh :=  cols[3].Attrs()["colspan"]
+	_, sigh := cols[3].Attrs()["colspan"]
 	if sigh {
 		return c
 	}
@@ -53,7 +53,6 @@ func parseRow(cols []soup.Root) RawCase {
 	c.DepartureDate = cols[8].Text()
 	return c
 }
-
 
 func parseStat(stat soup.Root) (int, int, error) {
 	tds := stat.FindAll("td")
@@ -135,7 +134,7 @@ func ScrapeCases() ([]*RawCase, error) {
 		}
 		c := parseRow(cols)
 		c.CaseType = "confirmed"
-		c.Case = len(rows)-i-1
+		c.Case = len(rows) - i - 1
 		cases = append(cases, &c)
 	}
 
@@ -149,7 +148,7 @@ func ScrapeCases() ([]*RawCase, error) {
 		}
 		c := parseRow(cols)
 		c.CaseType = "probable"
-		c.Case = len(rows)-i-1
+		c.Case = len(rows) - i - 1
 		cases = append(cases, &c)
 	}
 
@@ -158,8 +157,8 @@ func ScrapeCases() ([]*RawCase, error) {
 
 func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 	validViewTypes := map[string]bool{
-		"csv":     true,
-		"json":    true,
+		"csv":  true,
+		"json": true,
 		//"geojson": true,
 	}
 	if !validViewTypes[viewType] {
@@ -170,26 +169,26 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 	switch viewType {
 	case "csv":
 		sb.WriteString(
-				 `"CaseNumber",`+
-					`"ReportedDate",`+
-					`"LocationName",`+
-					`"AgeValid",`+
-					`"OlderOrEqualToAge",`+
-					`"YoungerThanAge",` +
-					`"Gender",`+
-				 	`"IsTravelRelated",`+
-				 	`"DepartureDateValid",`+
-				 	`"DepartureDate",`+
-					`"ArrivalDateValid",`+
-					`"ArrivalDate",`+
-					`"LastCityBeforeNZ",`+
-					`"FlightNumber",`+
-					`"CaseType"`,
-				)
+			`"CaseNumber",` +
+				`"ReportedDate",` +
+				`"LocationName",` +
+				`"AgeValid",` +
+				`"OlderOrEqualToAge",` +
+				`"YoungerThanAge",` +
+				`"Gender",` +
+				`"IsTravelRelated",` +
+				`"DepartureDateValid",` +
+				`"DepartureDate",` +
+				`"ArrivalDateValid",` +
+				`"ArrivalDate",` +
+				`"LastCityBeforeNZ",` +
+				`"FlightNumber",` +
+				`"CaseType"`,
+		)
 		sb.WriteRune('\n')
 		for _, c := range normCases {
 			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", "%v", "%v", "%v", %v, %v, "%v", "%v", "%v", "%v", "%v", "%v", "%v", "%v"`,
-				c.CaseNumber, c.ReportedDate, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,	c.Age.YoungerThanAge, c.Gender,
+				c.CaseNumber, c.ReportedDate, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge, c.Age.YoungerThanAge, c.Gender,
 				c.IsTravelRelated.Valid, c.IsTravelRelated.Value, c.DepartureDate.Valid, c.DepartureDate.Value, c.ArrivalDate.Valid, c.ArrivalDate.Value,
 				c.LastCityBeforeNZ, c.FlightNumber, c.CaseType))
 			sb.WriteRune('\n')
@@ -200,27 +199,27 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 			return "", err
 		}
 		sb.Write(b)
-	//case "geojson":
-	//	fc := geojson.NewFeatureCollection()
-	//	for _, c := range normCases {
-	//		var feature geojson.Feature
-	//		feature.Geometry = c.LocationCentrePoint
-	//		feature.SetProperty("LocationName", c.LocationName)
-	//		feature.SetProperty("CaseNumber", c.CaseNumber)
-	//		feature.SetProperty("AgeValid", c.Age.Valid)
-	//		feature.SetProperty("OlderOrEqualToAge", c.Age.OlderOrEqualToAge)
-	//		feature.SetProperty("YoungerOrEqualToAge", c.Age.YoungerOrEqualToAge)
-	//		feature.SetProperty("Gender", c.Gender)
-	//		feature.SetProperty("Travel details", c.TravelDetailsUnstructured)
-	//		feature.SetProperty("CaseType", c.CaseType)
-	//		fc.AddFeature(&feature)
-	//	}
-	//	b, err := fc.MarshalJSON()
-	//	if err != nil {
-	//		return "", err
-	//	}
-	//	sb.Write(b)
-	//	sb.WriteRune('\n')
+		//case "geojson":
+		//	fc := geojson.NewFeatureCollection()
+		//	for _, c := range normCases {
+		//		var feature geojson.Feature
+		//		feature.Geometry = c.LocationCentrePoint
+		//		feature.SetProperty("LocationName", c.LocationName)
+		//		feature.SetProperty("CaseNumber", c.CaseNumber)
+		//		feature.SetProperty("AgeValid", c.Age.Valid)
+		//		feature.SetProperty("OlderOrEqualToAge", c.Age.OlderOrEqualToAge)
+		//		feature.SetProperty("YoungerOrEqualToAge", c.Age.YoungerOrEqualToAge)
+		//		feature.SetProperty("Gender", c.Gender)
+		//		feature.SetProperty("Travel details", c.TravelDetailsUnstructured)
+		//		feature.SetProperty("CaseType", c.CaseType)
+		//		fc.AddFeature(&feature)
+		//	}
+		//	b, err := fc.MarshalJSON()
+		//	if err != nil {
+		//		return "", err
+		//	}
+		//	sb.Write(b)
+		//	sb.WriteRune('\n')
 	}
 	return sb.String(), nil
 }

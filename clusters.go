@@ -9,9 +9,9 @@ import (
 )
 
 type Cluster struct {
-	Name  string
-	Location string
-	Cases int
+	Name        string
+	Location    string
+	Cases       int
 	CasesNew24h int
 }
 
@@ -38,11 +38,11 @@ func ScrapeClusters() ([]*Cluster, error) {
 		c.Location = strings.TrimSpace(tds[1].Text())
 		c.Cases, err = strconv.Atoi(strings.TrimSpace(tds[2].Text()))
 		if err != nil {
-			return clusters,fmt.Errorf("on row %v could not convert case count (%v) to int", i, tds[2].Text())
+			return clusters, fmt.Errorf("on row %v could not convert case count (%v) to int", i, tds[2].Text())
 		}
-		c.CasesNew24h, err = strconv.Atoi(strings.TrimSpace(strings.Replace(tds[3].Text(),"*","", 1)))
+		c.CasesNew24h, err = strconv.Atoi(strings.TrimSpace(strings.Replace(tds[3].Text(), "*", "", 1)))
 		if err != nil {
-			return clusters,fmt.Errorf("on row %v could not convert new case count (%v) to int", i, tds[3].Text())
+			return clusters, fmt.Errorf("on row %v could not convert new case count (%v) to int", i, tds[3].Text())
 		}
 		clusters[i] = &c
 	}
@@ -53,8 +53,8 @@ func ScrapeClusters() ([]*Cluster, error) {
 func RenderClusters(clusters []*Cluster, viewType string) (string, error) {
 	var sb strings.Builder
 	validViewTypes := map[string]bool{
-		"csv":     true,
-		"json":    true,
+		"csv":  true,
+		"json": true,
 	}
 	if !validViewTypes[viewType] {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}

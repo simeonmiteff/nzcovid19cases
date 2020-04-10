@@ -9,7 +9,7 @@ import (
 )
 
 type AlertLevel struct {
-	Level int
+	Level     int
 	LevelName string
 }
 

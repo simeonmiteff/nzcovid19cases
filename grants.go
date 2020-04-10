@@ -9,22 +9,22 @@ import (
 )
 
 type GrantsSummary struct {
-	Clients int
-	Grants int
+	Clients        int
+	Grants         int
 	SumGrantAmount int
 }
 
 type GrantsRegions struct {
-	Auckland int
-	EastCoast int
+	Auckland    int
+	EastCoast   int
 	BayOfPlenty int
-	Northland int
-	Wellington int
-	Nelson int
-	Canterbury int
-	Southern int
-	Other int
-	Total int
+	Northland   int
+	Wellington  int
+	Nelson      int
+	Canterbury  int
+	Southern    int
+	Other       int
+	Total       int
 }
 
 type Grants struct {
@@ -55,7 +55,7 @@ func ScrapeGrants() (GrantsSummary, GrantsRegions, error) {
 
 	gS.Clients, err = strconv.Atoi(strings.ReplaceAll(tds[0].Text(), ",", ""))
 	if err != nil {
-		return gS, gR,fmt.Errorf("could not convert client count (%v) to int", tds[0].Text())
+		return gS, gR, fmt.Errorf("could not convert client count (%v) to int", tds[0].Text())
 	}
 	gS.Grants, err = strconv.Atoi(strings.ReplaceAll(tds[1].Text(), ",", ""))
 	if err != nil {

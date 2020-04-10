@@ -9,103 +9,102 @@ import (
 )
 
 type AgeRange struct {
-	Valid               bool
-	OlderOrEqualToAge   int
-	YoungerThanAge		int
+	Valid             bool
+	OlderOrEqualToAge int
+	YoungerThanAge    int
 }
 
 type TravelRelated struct {
-	Valid               bool
-	Value               bool
+	Valid bool
+	Value bool
 }
 
 type TravelDate struct {
-	Valid               bool
-	Value               time.Time
+	Valid bool
+	Value time.Time
 }
 
-
 type NormalisedCase struct {
-	CaseNumber          int
-	ReportedDate		time.Time
-	LocationName        string
-	Age                 AgeRange
-	Gender              string
-	IsTravelRelated		TravelRelated
-	DepartureDate		TravelDate
-	ArrivalDate			TravelDate
-	LastCityBeforeNZ	string
-	FlightNumber		string
-	CaseType			string
+	CaseNumber       int
+	ReportedDate     time.Time
+	LocationName     string
+	Age              AgeRange
+	Gender           string
+	IsTravelRelated  TravelRelated
+	DepartureDate    TravelDate
+	ArrivalDate      TravelDate
+	LastCityBeforeNZ string
+	FlightNumber     string
+	CaseType         string
 }
 
 var yesNoLookup = map[string]TravelRelated{
-	"yes": {Valid: true, Value: true},
-	"y": {Valid: true, Value: true},
-	"no": {Valid: true, Value: false},
-	"n": {Valid: true, Value: false},
-	"": {Valid: false, Value: false},
+	"yes":     {Valid: true, Value: true},
+	"y":       {Valid: true, Value: true},
+	"no":      {Valid: true, Value: false},
+	"n":       {Valid: true, Value: false},
+	"":        {Valid: false, Value: false},
 	"unknown": {Valid: false, Value: false},
 }
 
 var reAgeRange = regexp.MustCompile(`(\d+)`)
 
 var ageLookup = map[string]AgeRange{
-	"<1":         {Valid: true, OlderOrEqualToAge: 0, YoungerThanAge: 1},
-	"70+":        {Valid: true, OlderOrEqualToAge: 70, YoungerThanAge: 110},
-	"Unknown":    {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
-	"":          {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
+	"<1":      {Valid: true, OlderOrEqualToAge: 0, YoungerThanAge: 1},
+	"70+":     {Valid: true, OlderOrEqualToAge: 70, YoungerThanAge: 110},
+	"Unknown": {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
+	"":        {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
 }
 
 var genderLookup = map[string]string{
-	"F":      			"Female",
-	"Female": 			"Female",
-	"M":      			"Male",
-	"Male":   			"Male",
-	"":      			"Unknown or undisclosed",
-	"Not provided":     "Unknown or undisclosed",
+	"F":            "Female",
+	"Female":       "Female",
+	"M":            "Male",
+	"Male":         "Male",
+	"":             "Unknown or undisclosed",
+	"Not provided": "Unknown or undisclosed",
 }
 
-var levelLookup = map[int]string {
-	1:"Prepare",
-	2:"Reduce",
-	3:"Restrict",
-	4:"Eliminate",
+var levelLookup = map[int]string{
+	1: "Prepare",
+	2: "Reduce",
+	3: "Restrict",
+	4: "Eliminate",
 }
 
 var locationNames = map[string]string{
-	"Capital & Coast": 		"Capital and Coast",
-	"Hawkes’s Bay": 		"Hawke's Bay",
-	"Hawke’s Bay": 			"Hawke's Bay",
-	"Hawkes Bay": 			"Hawke's Bay",
-	"Nelson-Marlborough":	"Nelson Marlborough",
-	"Southern DHB":			"Southern",
+	"Capital & Coast":    "Capital and Coast",
+	"Hawkes’s Bay":       "Hawke's Bay",
+	"Hawke’s Bay":        "Hawke's Bay",
+	"Hawkes Bay":         "Hawke's Bay",
+	"Nelson-Marlborough": "Nelson Marlborough",
+	"Southern DHB":       "Southern",
 }
 
 var validDHBs = map[string]bool{
-	"Auckland":true,
-	"Bay of Plenty":true,
-	"Canterbury":true,
-	"Capital and Coast":true,
-	"Counties Manukau":true,
-	"Hawke's Bay":true,
-	"Hutt Valley":true,
-	"Lakes":true,
-	"MidCentral":true,
-	"Nelson Marlborough":true,
-	"Northland":true,
-	"South Canterbury":true,
-	"Southern":true,
-	"Tairawhiti":true,
-	"Taranaki":true,
-	"Waikato":true,
-	"Wairarapa":true,
-	"Waitemata":true,
-	"West Coast":true,
-	"Whanganui":true,
+	"Auckland":           true,
+	"Bay of Plenty":      true,
+	"Canterbury":         true,
+	"Capital and Coast":  true,
+	"Counties Manukau":   true,
+	"Hawke's Bay":        true,
+	"Hutt Valley":        true,
+	"Lakes":              true,
+	"MidCentral":         true,
+	"Nelson Marlborough": true,
+	"Northland":          true,
+	"South Canterbury":   true,
+	"Southern":           true,
+	"Tairawhiti":         true,
+	"Taranaki":           true,
+	"Waikato":            true,
+	"Wairarapa":          true,
+	"Waitemata":          true,
+	"West Coast":         true,
+	"Whanganui":          true,
 }
 
-var ValidDHBsList =[]string{
+var ValidDHBsList = []string{
 	"Auckland",
 	"Bay of Plenty",
 	"Canterbury",
@@ -198,7 +197,7 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 		if err != nil {
 			return fmt.Errorf("problem parsing departure date (%v): %w", r.DepartureDate, err)
 		}
-		n.DepartureDate = TravelDate{Valid:true, Value:d}
+		n.DepartureDate = TravelDate{Valid: true, Value: d}
 	}
 
 	if strings.TrimSpace(r.ArrivalDate) != "" {
@@ -206,7 +205,7 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 		if err != nil {
 			return fmt.Errorf("problem parsing arrival date (%v): %w", r.ArrivalDate, err)
 		}
-		n.ArrivalDate = TravelDate{Valid:true, Value:d}
+		n.ArrivalDate = TravelDate{Valid: true, Value: d}
 	}
 
 	//geometry, ok := locations[n.LocationName]
