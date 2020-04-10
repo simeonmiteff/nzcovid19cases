@@ -184,7 +184,7 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 
 	tz, err := time.LoadLocation("Pacific/Auckland")
 	if err != nil {
-		return fmt.Errorf("failed to load timezone: %w", tz)
+		return fmt.Errorf("failed to load timezone: %w", err)
 	}
 
 	reportedDate, err := time.ParseInLocation(TimeFormat, r.ReportedDate, tz)
