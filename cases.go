@@ -57,21 +57,28 @@ func parseRow(cols []soup.Root) RawCase {
 
 func parseStat(stat soup.Root) (int, int, error) {
 	tds := stat.FindAll("td")
-
 	if len(tds) != 2 {
 		return 0, 0, fmt.Errorf("expected two columns")
 	}
-	num, err := strconv.Atoi(tds[0].Text())
+
+	numString := strings.ReplaceAll(tds[0].Text(), ",", "")
+
+	num, err := strconv.Atoi(numString)
 	if err != nil {
 		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", tds[1].Text(), err)
 	}
+
 	if strings.TrimSpace(tds[1].Text()) == "" {
 		return num, 0, nil
 	}
-	num24h, err := strconv.Atoi(tds[1].Text())
+
+	num24hString := strings.ReplaceAll(tds[1].Text(), ",", "")
+
+	num24h, err := strconv.Atoi(num24hString)
 	if err != nil {
 		return 0, 0, fmt.Errorf("failed to convert %v to number: %w", tds[1].Text(), err)
 	}
+
 	return num, num24h, nil
 }
 
