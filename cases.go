@@ -41,6 +41,11 @@ func parseRow(cols []soup.Root) RawCase {
 	c.Gender = cols[1].Text()
 	c.Age = cols[2].Text()
 	c.Location = cols[3].Text()
+	// Handle case with erroneous colspan
+	_, sigh :=  cols[3].Attrs()["colspan"]
+	if sigh {
+		return c
+	}
 	c.TravelRelated = cols[4].Text()
 	c.LastCityBeforeNZ = cols[5].Text()
 	c.FlightNumber = cols[6].Text()
@@ -118,8 +123,8 @@ func ScrapeCases() ([]*RawCase, error) {
 	// Note: slice starting at 1, skipping the header
 	for i, row := range rows[1:] {
 		cols := row.FindAll("td")
-		if len(cols) != 9 {
-			return nil, fmt.Errorf("table 1 row has %v columns, not 9", len(cols))
+		if len(cols) < 8 {
+			return nil, fmt.Errorf("table 1 row has %v columns, not at least 8", len(cols))
 		}
 		c := parseRow(cols)
 		c.CaseType = "confirmed"
