@@ -130,14 +130,15 @@ var ValidDHBsList = []string{
 const TimeFormat = "2/01/2006"
 
 func (n *NormalisedCase) FromRaw(r *RawCase) error {
-
 	age := strings.TrimSpace(r.Age)
 
 	var ageRange AgeRange
-	var ok bool
-	matches := reAgeRange.FindAllString(age, 2)
-	if len(matches) != 2 {
 
+	var ok bool
+
+	matches := reAgeRange.FindAllString(age, 2)
+
+	if len(matches) != 2 {
 		ageRange, ok = ageLookup[age]
 		if !ok {
 			exactAge, err := strconv.Atoi(age)
@@ -160,18 +161,21 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	}
 
 	n.Age = ageRange
+
 	gender, ok := genderLookup[strings.TrimSpace(r.Gender)]
 	if !ok {
 		return fmt.Errorf("gender string \"%v\" not found in lookup table", r.Gender)
 	}
 
 	noSpaces := strings.TrimSpace(r.Location)
+
 	correctedName, ok := locationNames[noSpaces]
 	if ok {
 		_, ok = validDHBs[correctedName]
 		if !ok {
 			return fmt.Errorf("DHB name \"%v\" not found in lookup table", correctedName)
 		}
+
 		n.LocationName = correctedName
 	} else {
 		n.LocationName = noSpaces
@@ -197,6 +201,7 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 		if err != nil {
 			return fmt.Errorf("problem parsing departure date (%v): %w", r.DepartureDate, err)
 		}
+
 		n.DepartureDate = TravelDate{Valid: true, Value: d}
 	}
 
@@ -205,14 +210,9 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 		if err != nil {
 			return fmt.Errorf("problem parsing arrival date (%v): %w", r.ArrivalDate, err)
 		}
+
 		n.ArrivalDate = TravelDate{Valid: true, Value: d}
 	}
-
-	//geometry, ok := locations[n.LocationName]
-	//if !ok {
-	//	return fmt.Errorf("unknown location: \"%v\"", n.LocationName)
-	//}
-	//n.LocationCentrePoint = geometry
 
 	n.ReportedDate = reportedDate
 	n.Gender = gender
@@ -227,13 +227,17 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 
 func NormaliseCases(rawCases []*RawCase) ([]*NormalisedCase, error) {
 	normCases := make([]*NormalisedCase, len(rawCases))
+
 	for i, cp := range rawCases {
 		var normCase NormalisedCase
+
 		err := normCase.FromRaw(cp)
 		if err != nil {
 			return nil, fmt.Errorf("problem normalising case from line %v: %w", i, err)
 		}
+
 		normCases[i] = &normCase
 	}
+
 	return normCases, nil
 }

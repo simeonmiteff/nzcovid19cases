@@ -25,6 +25,7 @@ Usage: %v <action>
 		- clusters/json
 		- clusters/csv
 `, os.Args[0])
+
 	os.Exit(1)
 }
 
@@ -62,10 +63,9 @@ func checkTypes(dataType string) {
 
 		usage()
 	}
-
 }
 
-func main() {
+func getArgs() (string, string) {
 	if len(os.Args) < NumArgs {
 		usage()
 	}
@@ -77,12 +77,17 @@ func main() {
 		usage()
 	}
 
-	dataType := parts[0]
-	viewType := parts[1]
+	return parts[0], parts[1]
+}
+
+//nolint:funlen
+func main() {
+	dataType, viewType := getArgs()
 
 	checkTypes(dataType)
 
 	var result string
+
 	var renderErr error
 
 	switch dataType {
@@ -113,6 +118,7 @@ func main() {
 		if err != nil {
 			abort(err, 6)
 		}
+
 		result, renderErr = nzcovid19cases.RenderGrants(gS, gR, viewType)
 	case "casestats":
 		caseStats, err := nzcovid19cases.ScrapeCaseStats()

@@ -20,7 +20,9 @@ func ScrapeLevel() (int, string, error) {
 	if err != nil {
 		return 0, "", err
 	}
+
 	doc := soup.HTMLParse(resp)
+
 	h3 := doc.Find("h3")
 	if h3.Error != nil {
 		return 0, "", fmt.Errorf("could not find h3")
@@ -50,13 +52,16 @@ func RenderLevels(levelInt int, levelString, viewType string) (string, error) {
 	if viewType != "json" {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
 	}
+
 	level := AlertLevel{
 		Level:     levelInt,
 		LevelName: levelString,
 	}
+
 	b, err := json.MarshalIndent(level, "", "  ")
 	if err != nil {
 		return "", err
 	}
+
 	return string(b), nil
 }
