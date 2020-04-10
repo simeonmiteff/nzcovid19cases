@@ -7,6 +7,9 @@ import (
 	"strings"
 )
 
+const NumArgs = 2
+const NumParts = 2
+
 func usage() {
 	_, _ = fmt.Fprintf(os.Stderr, `
 
@@ -30,93 +33,113 @@ func abort(err error, exitCode int) {
 	os.Exit(exitCode)
 }
 
-func main() {
-	if len(os.Args) < 2 {
-		usage()
+func getCases() ([]*nzcovid19cases.NormalisedCase, error) {
+	rawCases, err := nzcovid19cases.ScrapeCases()
+	if err != nil {
+		return nil, err
 	}
-	arg1 := os.Args[1]
-	parts := strings.SplitN(arg1, "/", 2)
-	if len(parts) != 2 {
-		usage()
-	}
-	dataType := parts[0]
-	viewType := parts[1]
 
+	normCases, err := nzcovid19cases.NormaliseCases(rawCases)
+	if err != nil {
+		return nil, err
+	}
+
+	return normCases, nil
+}
+
+func checkTypes(dataType string) {
 	validDataTypes := map[string]bool{
-		"cases": true,
-		"casestats": true,
-		"locations": true,
+		"cases":      true,
+		"casestats":  true,
+		"locations":  true,
 		"alertlevel": true,
-		"grants": true,
-		"clusters": true,
+		"grants":     true,
+		"clusters":   true,
 	}
 
 	if !validDataTypes[dataType] {
 		_, _ = fmt.Fprintf(os.Stderr, "Unknown data type specified\n")
+
 		usage()
 	}
 
+}
+
+func main() {
+	if len(os.Args) < NumArgs {
+		usage()
+	}
+
+	arg1 := os.Args[1]
+	parts := strings.SplitN(arg1, "/", NumParts)
+
+	if len(parts) != NumParts {
+		usage()
+	}
+
+	dataType := parts[0]
+	viewType := parts[1]
+
+	checkTypes(dataType)
 
 	var result string
-	var err error
+	var renderErr error
+
 	switch dataType {
 	case "cases":
-		rawCases, err := nzcovid19cases.ScrapeCases()
-		if err != nil {
-			abort(err, 2)
-		}
-		normCases, err := nzcovid19cases.NormaliseCases(rawCases)
+		normCases, err := getCases()
 		if err != nil {
 			abort(err, 4)
 		}
-		result, err = nzcovid19cases.RenderCases(normCases, viewType)
+
+		result, renderErr = nzcovid19cases.RenderCases(normCases, viewType)
 	case "locations":
-		// FIXME: dedup code
-		rawCases, err := nzcovid19cases.ScrapeCases()
-		if err != nil {
-			abort(err, 2)
-		}
-		normCases, err := nzcovid19cases.NormaliseCases(rawCases)
+		normCases, err := getCases()
 		if err != nil {
 			abort(err, 4)
 		}
+
 		locations := nzcovid19cases.BuildLocations(normCases)
-		result, err = nzcovid19cases.RenderLocations(locations, viewType)
+		result, renderErr = nzcovid19cases.RenderLocations(locations, viewType)
 	case "alertlevel":
 		levelInt, levelString, err := nzcovid19cases.ScrapeLevel()
 		if err != nil {
 			abort(err, 5)
 		}
-		result, err = nzcovid19cases.RenderLevels(levelInt, levelString, viewType)
+
+		result, renderErr = nzcovid19cases.RenderLevels(levelInt, levelString, viewType)
 	case "grants":
 		gS, gR, err := nzcovid19cases.ScrapeGrants()
 		if err != nil {
 			abort(err, 6)
 		}
-		result, err = nzcovid19cases.RenderGrants(gS, gR, viewType)
+		result, renderErr = nzcovid19cases.RenderGrants(gS, gR, viewType)
 	case "casestats":
 		caseStats, err := nzcovid19cases.ScrapeCaseStats()
 		if err != nil {
 			abort(err, 3)
 		}
-		result, err = nzcovid19cases.RenderCaseStats(caseStats, "json")
+
+		result, renderErr = nzcovid19cases.RenderCaseStats(caseStats, "json")
 	case "clusters":
 		clusters, err := nzcovid19cases.ScrapeClusters()
 		if err != nil {
 			abort(err, 3)
 		}
-		result, err = nzcovid19cases.RenderClusters(clusters, viewType)
+
+		result, renderErr = nzcovid19cases.RenderClusters(clusters, viewType)
 	}
 
-	if err != nil {
-		invalidUsageError, ok := err.(nzcovid19cases.InvalidUsageError)
+	if renderErr != nil {
+		invalidUsageError, ok := renderErr.(nzcovid19cases.InvalidUsageError)
 		if ok {
 			_, _ = fmt.Fprint(os.Stderr, invalidUsageError)
+
 			usage()
 		}
-		abort(err, 100)
+
+		abort(renderErr, 100)
 	}
 
 	fmt.Print(result)
-
 }
