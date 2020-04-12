@@ -63,22 +63,22 @@ func RenderClusters(clusters []*Cluster, viewType string) (string, error) {
 	var sb strings.Builder
 
 	validViewTypes := map[string]bool{
-		"csv":  true,
-		"json": true,
+		CSVRenderType:  true,
+		JSONRenderType: true,
 	}
 	if !validViewTypes[viewType] {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
 	}
 
 	switch viewType {
-	case "json":
+	case JSONRenderType:
 		b, err := json.MarshalIndent(clusters, "", "  ")
 		if err != nil {
 			return "", err
 		}
 
 		sb.Write(b)
-	case "csv":
+	case CSVRenderType:
 		sb.WriteString(`"Name", "Location", "Cases", "CasesNew24h"`)
 		sb.WriteRune('\n')
 

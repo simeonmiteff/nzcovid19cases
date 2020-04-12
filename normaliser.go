@@ -38,7 +38,7 @@ type NormalisedCase struct {
 	CaseType         string
 }
 
-var yesNoLookup = map[string]TravelRelated{
+var yesNoLookup = map[string]TravelRelated{ //nolint:gochecknoglobals
 	"yes":     {Valid: true, Value: true},
 	"y":       {Valid: true, Value: true},
 	"no":      {Valid: true, Value: false},
@@ -47,16 +47,16 @@ var yesNoLookup = map[string]TravelRelated{
 	"unknown": {Valid: false, Value: false},
 }
 
-var reAgeRange = regexp.MustCompile(`(\d+)`)
+var reAgeRange = regexp.MustCompile(`(\d+)`) //nolint:gochecknoglobals
 
-var ageLookup = map[string]AgeRange{
+var ageLookup = map[string]AgeRange{ //nolint:gochecknoglobals
 	"<1":      {Valid: true, OlderOrEqualToAge: 0, YoungerThanAge: 1},
-	"70+":     {Valid: true, OlderOrEqualToAge: 70, YoungerThanAge: 110},
+	"70+":     {Valid: true, OlderOrEqualToAge: 70, YoungerThanAge: 110}, //nolint:gomnd
 	"Unknown": {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
 	"":        {Valid: false, OlderOrEqualToAge: 0, YoungerThanAge: 0},
 }
 
-var genderLookup = map[string]string{
+var genderLookup = map[string]string{ //nolint:gochecknoglobals
 	"F":            "Female",
 	"Female":       "Female",
 	"M":            "Male",
@@ -65,14 +65,14 @@ var genderLookup = map[string]string{
 	"Not provided": "Unknown or undisclosed",
 }
 
-var levelLookup = map[int]string{
+var levelLookup = map[int]string{ //nolint:gochecknoglobals
 	1: "Prepare",
 	2: "Reduce",
 	3: "Restrict",
 	4: "Eliminate",
 }
 
-var locationNames = map[string]string{
+var locationNames = map[string]string{ //nolint:gochecknoglobals
 	"Capital & Coast":    "Capital and Coast",
 	"Hawkes’s Bay":       "Hawke's Bay",
 	"Hawke’s Bay":        "Hawke's Bay",
@@ -81,7 +81,7 @@ var locationNames = map[string]string{
 	"Southern DHB":       "Southern",
 }
 
-var validDHBs = map[string]bool{
+var validDHBs = map[string]bool{ //nolint:gochecknoglobals
 	"Auckland":           true,
 	"Bay of Plenty":      true,
 	"Canterbury":         true,
@@ -104,7 +104,7 @@ var validDHBs = map[string]bool{
 	"Whanganui":          true,
 }
 
-var ValidDHBsList = []string{
+var ValidDHBsList = []string{ //nolint:gochecknoglobals
 	"Auckland",
 	"Bay of Plenty",
 	"Canterbury",
@@ -129,6 +129,7 @@ var ValidDHBsList = []string{
 
 const TimeFormat = "2/01/2006"
 
+//nolint:funlen
 func (n *NormalisedCase) FromRaw(r *RawCase) error {
 	age := strings.TrimSpace(r.Age)
 
@@ -138,7 +139,7 @@ func (n *NormalisedCase) FromRaw(r *RawCase) error {
 
 	matches := reAgeRange.FindAllString(age, 2)
 
-	if len(matches) != 2 {
+	if len(matches) != 2 { //nolint:gomnd
 		ageRange, ok = ageLookup[age]
 		if !ok {
 			exactAge, err := strconv.Atoi(age)

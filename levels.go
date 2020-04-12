@@ -3,9 +3,10 @@ package nzcovid19cases
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/anaskhan96/soup"
 	"regexp"
 	"strconv"
+
+	"github.com/anaskhan96/soup"
 )
 
 type AlertLevel struct {
@@ -13,7 +14,8 @@ type AlertLevel struct {
 	LevelName string
 }
 
-var re = regexp.MustCompile(`(?m)Level (\d)`)
+var re = regexp.MustCompile(`(?m)Level (\d)`) //nolint:gochecknoglobals
+const NumLevelREMatches = 2
 
 func ScrapeLevel() (int, string, error) {
 	resp, err := soup.Get("https://covid19.govt.nz/")
@@ -29,7 +31,7 @@ func ScrapeLevel() (int, string, error) {
 	}
 
 	matches := re.FindStringSubmatch(h3.Text())
-	if len(matches) != 2 {
+	if len(matches) != NumLevelREMatches {
 		return 0, "", fmt.Errorf("expected two match elements")
 	}
 
@@ -49,7 +51,7 @@ func ScrapeLevel() (int, string, error) {
 }
 
 func RenderLevels(levelInt int, levelString, viewType string) (string, error) {
-	if viewType != "json" {
+	if viewType != JSONRenderType {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
 	}
 

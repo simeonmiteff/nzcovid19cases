@@ -53,12 +53,18 @@ func parseRow(cols []soup.Root) RawCase {
 	c.FlightNumber = cols[6].Text()
 	c.ArrivalDate = cols[7].Text()
 	c.DepartureDate = cols[8].Text()
+
 	return c
 }
 
+const (
+	CSVRenderType  = "csv"
+	JSONRenderType = "json"
+)
+
 func parseStat(stat soup.Root) (int, int, error) {
 	tds := stat.FindAll("td")
-	if len(tds) != 2 {
+	if len(tds) != 2 { //nolint:gomnd
 		return 0, 0, fmt.Errorf("expected two columns")
 	}
 
@@ -96,19 +102,19 @@ func ScrapeCases() ([]*RawCase, error) {
 
 	var offset = 0
 
-	if len(tables) > 2 {
+	if len(tables) > 2 { //nolint:gomnd
 		offset = 1
 	}
 
 	rows := tables[offset].FindAll("tr")
 
-	var cases []*RawCase
+	var cases []*RawCase //nolint:prealloc
 
 	// Note: slice starting at 1, skipping the header
 	for i, row := range rows[1:] {
 		cols := row.FindAll("td")
 
-		if len(cols) < 8 {
+		if len(cols) < 8 { //nolint:gomnd
 			return nil, fmt.Errorf("table 1 row has %v columns, not at least 8", len(cols))
 		}
 
@@ -126,7 +132,7 @@ func ScrapeCases() ([]*RawCase, error) {
 	for i, row := range rows[1:] {
 		cols := row.FindAll("td")
 
-		if len(cols) != 9 {
+		if len(cols) != 9 { //nolint:gomnd
 			return nil, fmt.Errorf("table 1 row has %v columns, not 9", len(cols))
 		}
 
@@ -143,16 +149,17 @@ func ScrapeCases() ([]*RawCase, error) {
 
 func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 	validViewTypes := map[string]bool{
-		"csv":  true,
-		"json": true,
+		CSVRenderType:  true,
+		JSONRenderType: true,
 	}
 	if !validViewTypes[viewType] {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
 	}
 
 	var sb strings.Builder
+
 	switch viewType {
-	case "csv":
+	case CSVRenderType:
 		sb.WriteString(
 			`"CaseNumber",` +
 				`"ReportedDate",` +
@@ -171,35 +178,45 @@ func RenderCases(normCases []*NormalisedCase, viewType string) (string, error) {
 				`"CaseType"`,
 		)
 		sb.WriteRune('\n')
+
 		for _, c := range normCases {
-			sb.WriteString(fmt.Sprintf(`%v, "%v", "%v", "%v", "%v", "%v", %v, %v, "%v", "%v", "%v", "%v", "%v", "%v", "%v", "%v"`,
-				c.CaseNumber, c.ReportedDate, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge, c.Age.YoungerThanAge, c.Gender,
-				c.IsTravelRelated.Valid, c.IsTravelRelated.Value, c.DepartureDate.Valid, c.DepartureDate.Value, c.ArrivalDate.Valid, c.ArrivalDate.Value,
-				c.LastCityBeforeNZ, c.FlightNumber, c.CaseType))
+			sb.WriteString(fmt.Sprintf(
+				`%v, "%v", "%v", "%v", "%v", "%v", %v, %v, "%v", "%v", "%v", "%v", "%v", "%v", "%v", "%v"`,
+				c.CaseNumber, c.ReportedDate, c.LocationName, c.Age.Valid, c.Age.OlderOrEqualToAge,
+				c.Age.YoungerThanAge, c.Gender, c.IsTravelRelated.Valid, c.IsTravelRelated.Value,
+				c.DepartureDate.Valid, c.DepartureDate.Value, c.ArrivalDate.Valid, c.ArrivalDate.Value,
+				c.LastCityBeforeNZ, c.FlightNumber, c.CaseType),
+			)
 			sb.WriteRune('\n')
 		}
-	case "json":
+
+	case JSONRenderType:
 		b, err := json.MarshalIndent(normCases, "", "  ")
 		if err != nil {
 			return "", err
 		}
+
 		sb.Write(b)
 	}
+
 	return sb.String(), nil
 }
 
 func ScrapeCaseStats() (CaseStatsResponse, error) {
 	var cS CaseStatsResponse
-	resp, err := soup.Get("https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-current-cases")
+
+	resp, err := soup.Get("https://www.health.govt.nz/our-work/diseases-and-conditions/" +
+		"covid-19-novel-coronavirus/covid-19-current-cases")
 	if err != nil {
 		return cS, err
 	}
+
 	doc := soup.HTMLParse(resp)
 
 	tables := doc.FindAll("table")
 	stats := tables[0].FindAll("tr")
 
-	if len(stats) != 7 {
+	if len(stats) != 7 { //nolint:gomnd
 		return cS, fmt.Errorf("stats table has %v TR, not 7", len(stats))
 	}
 
@@ -207,18 +224,22 @@ func ScrapeCaseStats() (CaseStatsResponse, error) {
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing confirmed cases %w", err)
 	}
+
 	cS.ProbableCasesTotal, cS.ProbableCasesNew24h, err = parseStat(stats[2])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing probable cases %w", err)
 	}
+
 	cS.HospitalisedCasesTotal, cS.HospitalisedCasesNew24h, err = parseStat(stats[4]) //parseStatHosp(stats[4])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing hospitalised cases %w", err)
 	}
+
 	cS.RecoveredCasesTotal, cS.RecoveredCasesNew24h, err = parseStat(stats[5])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing recovered cases %w", err)
 	}
+
 	cS.DeathCasesTotal, cS.DeathCasesNew24h, err = parseStat(stats[6])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing dead cases %w", err)
@@ -229,13 +250,17 @@ func ScrapeCaseStats() (CaseStatsResponse, error) {
 
 func RenderCaseStats(cS CaseStatsResponse, viewType string) (string, error) {
 	var sb strings.Builder
-	if viewType != "json" {
+
+	if viewType != JSONRenderType {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
 	}
+
 	b, err := json.MarshalIndent(cS, "", "  ")
 	if err != nil {
 		return "", err
 	}
+
 	sb.Write(b)
+
 	return sb.String(), nil
 }

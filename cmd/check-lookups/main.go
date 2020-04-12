@@ -4,6 +4,7 @@ import (
 	"github.com/simeonmiteff/nzcovid19cases"
 )
 
+//nolint:funlen
 func main() {
 	rawCases, err := nzcovid19cases.ScrapeCases()
 	if err != nil {
@@ -41,6 +42,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	_, err = nzcovid19cases.RenderLevels(levelInt, levelString, "json")
 	if err != nil {
 		panic(err)
@@ -62,5 +64,7 @@ func main() {
 	}
 
 	_, err = nzcovid19cases.RenderClusters(clusters, "json")
-
+	if err != nil {
+		panic(err)
+	}
 }

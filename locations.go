@@ -8,7 +8,7 @@ import (
 
 type Location struct {
 	LocationName string
-	CaseCount int
+	CaseCount    int
 }
 
 func BuildLocations(normCases []*NormalisedCase) map[string]*Location {

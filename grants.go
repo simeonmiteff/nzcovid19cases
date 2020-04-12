@@ -3,9 +3,10 @@ package nzcovid19cases
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/anaskhan96/soup"
 	"strconv"
 	"strings"
+
+	"github.com/anaskhan96/soup"
 )
 
 type GrantsSummary struct {
@@ -32,8 +33,6 @@ type Grants struct {
 	Regions GrantsRegions
 }
 
-const NumGrantPageTables = 2
-
 //nolint:funlen
 func ScrapeGrants() (GrantsSummary, GrantsRegions, error) {
 	var gS GrantsSummary
@@ -53,7 +52,7 @@ func ScrapeGrants() (GrantsSummary, GrantsRegions, error) {
 	}
 
 	tables := div.FindAll("table")
-	if len(tables) != NumGrantPageTables {
+	if len(tables) != 2 { //nolint:gomnd
 		return gS, gR, fmt.Errorf("content div has fewer than 2 (%v) tables", len(tables))
 	}
 
@@ -132,7 +131,7 @@ func ScrapeGrants() (GrantsSummary, GrantsRegions, error) {
 func RenderGrants(gS GrantsSummary, gR GrantsRegions, viewType string) (string, error) {
 	var sb strings.Builder
 
-	if viewType != "json" {
+	if viewType != JSONRenderType {
 		return "", InvalidUsageError{fmt.Sprintf("unknown view type: %v", viewType)}
 	}
 
@@ -140,10 +139,10 @@ func RenderGrants(gS GrantsSummary, gR GrantsRegions, viewType string) (string, 
 		Summary: gS,
 		Regions: gR,
 	}, "", "  ")
-
 	if err != nil {
 		return "", err
 	}
+
 	sb.Write(b)
 
 	return sb.String(), nil

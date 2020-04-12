@@ -2,13 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/simeonmiteff/nzcovid19cases"
 	"os"
 	"strings"
-)
 
-const NumArgs = 2
-const NumParts = 2
+	"github.com/simeonmiteff/nzcovid19cases"
+)
 
 func usage() {
 	_, _ = fmt.Fprintf(os.Stderr, `
@@ -66,14 +64,14 @@ func checkTypes(dataType string) {
 }
 
 func getArgs() (string, string) {
-	if len(os.Args) < NumArgs {
+	if len(os.Args) < 2 { //nolint:gomnd
 		usage()
 	}
 
 	arg1 := os.Args[1]
-	parts := strings.SplitN(arg1, "/", NumParts)
+	parts := strings.SplitN(arg1, "/", 2) //nolint:gomnd
 
-	if len(parts) != NumParts {
+	if len(parts) != 2 { //nolint:gomnd
 		usage()
 	}
 
