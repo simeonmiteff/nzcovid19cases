@@ -1,0 +1,82 @@
+{
+  "Auckland": {
+    "LocationName": "Auckland",
+    "CaseCount": 173
+  },
+  "Bay of Plenty": {
+    "LocationName": "Bay of Plenty",
+    "CaseCount": 42
+  },
+  "Canterbury": {
+    "LocationName": "Canterbury",
+    "CaseCount": 135
+  },
+  "Capital and Coast": {
+    "LocationName": "Capital and Coast",
+    "CaseCount": 86
+  },
+  "Counties Manukau": {
+    "LocationName": "Counties Manukau",
+    "CaseCount": 98
+  },
+  "Hawke's Bay": {
+    "LocationName": "Hawke's Bay",
+    "CaseCount": 38
+  },
+  "Hutt Valley": {
+    "LocationName": "Hutt Valley",
+    "CaseCount": 21
+  },
+  "Lakes": {
+    "LocationName": "Lakes",
+    "CaseCount": 14
+  },
+  "MidCentral": {
+    "LocationName": "MidCentral",
+    "CaseCount": 28
+  },
+  "Nelson Marlborough": {
+    "LocationName": "Nelson Marlborough",
+    "CaseCount": 48
+  },
+  "Northland": {
+    "LocationName": "Northland",
+    "CaseCount": 25
+  },
+  "South Canterbury": {
+    "LocationName": "South Canterbury",
+    "CaseCount": 11
+  },
+  "Southern": {
+    "LocationName": "Southern",
+    "CaseCount": 207
+  },
+  "Tairawhiti": {
+    "LocationName": "Tairawhiti",
+    "CaseCount": 1
+  },
+  "Taranaki": {
+    "LocationName": "Taranaki",
+    "CaseCount": 14
+  },
+  "Waikato": {
+    "LocationName": "Waikato",
+    "CaseCount": 167
+  },
+  "Wairarapa": {
+    "LocationName": "Wairarapa",
+    "CaseCount": 9
+  },
+  "Waitemata": {
+    "LocationName": "Waitemata",
+    "CaseCount": 183
+  },
+  "West Coast": {
+    "LocationName": "West Coast",
+    "CaseCount": 5
+  },
+  "Whanganui": {
+    "LocationName": "Whanganui",
+    "CaseCount": 7
+  }
+}
