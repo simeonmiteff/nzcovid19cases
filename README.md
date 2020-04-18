@@ -1,5 +1,40 @@
 # NZ COVID-19 cases scraper
 
+# UPDATE: discontinuation of case detail scraping
+
+On April 12, the MOH stopped publishing all COVID-19 case details in a single table, and began reporting monthly cases.
+At this point I don't think it makes sense for this API to offer detailed case information. The last successfully scraped
+case data is now [archived](archive_data/2020-04-11). I will leave the scraping code as is for those who want to use
+the CLI tool to download the current month's case data.
+
+Similarly, the location (per-DHB statistics) which were derived from scraped cases will now be incorrect, and MOH's
+own per-DHB case summary table is also only for the current month. Again, I will remove the API for `/location/*` and
+leave the CLI function in place, in case it is useful to anyone (unlikely, but who knows).
+
+For those who are interested in obtaining a full snapshot of case information, the best source I know of is the via the
+[arcgis.com dashboard linked from the MOH webste](https://experience.arcgis.com/experience/e4e58e39a0ec410eb054f42012a27b4b).
+ 
+Specifically tables that appear to be obtained from, or maintained by [ESR](https://www.esr.cri.nz/) in the
+backend web service, can be dumped in JSON format with the right query strings:
+
+- [Daily_ESR_Update_Cases](https://services2.arcgis.com/9V7Qc4NIcvZBm0io/ArcGIS/rest/services/Daily_ESR_Update_Cases/FeatureServer/0/query?where=0%3D0&outFields=%2A&f=json)
+- [Daily_ESR_Update_DHB](https://services2.arcgis.com/9V7Qc4NIcvZBm0io/ArcGIS/rest/services/Daily_ESR_Update_DHB/FeatureServer/0/query?where=0%3D0&outFields=%2A&f=json)
+
+# UPDATE: real-time NZ COVID-19 statistics
+
+[ESR](https://www.esr.cri.nz/) now provides a dashboard that (presumably) renders statistics directly from the
+authoritative database that all the NZ COVID-19 comes from (EpiSurv): https://nzcoviddashboard.esr.cri.nz/
+
+Unfortunately there is no usable API. As far as I can tell, R Shiny-server uses a baroque home-grown protocol. 
+It exchanges strangely encoded messages (mixed with JSON) over streaming XHR connections:
+
+```
+Client: ["0#0|o|"]
+Server: a["1#0|m|{\"busy\":\"busy\"}"]
+```
+
+If anyone feels there is significant value in reverse-engineering this, feel free to open an issue.
+
 # Overview
 
 This code is intended to scrape the following sources of COVID-19 data in New Zealand, and render the data in various formats suitable for mapping, visualisation and analysis:
