@@ -48,15 +48,15 @@ func main() {
 		panic(err)
 	}
 
-	gS, gR, err := nzcovid19cases.ScrapeGrants()
-	if err != nil {
-		panic(err)
-	}
+	//gS, gR, err := nzcovid19cases.ScrapeGrants()
+	//if err != nil {
+	//	panic(err)
+	//}
 
-	_, err = nzcovid19cases.RenderGrants(gS, gR, "json")
-	if err != nil {
-		panic(err)
-	}
+	//_, err = nzcovid19cases.RenderGrants(gS, gR, "json")
+	//if err != nil {
+	//	panic(err)
+	//}
 
 	clusters, err := nzcovid19cases.ScrapeClusters()
 	if err != nil {

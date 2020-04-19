@@ -18,7 +18,6 @@ Usage: %v <action>
 		- locations/json
 		- locations/csv
 		- alertlevel/json
-		- grants/json
 		- casestats/json
 		- clusters/json
 		- clusters/csv
@@ -52,7 +51,7 @@ func checkTypes(dataType string) {
 		"casestats":  true,
 		"locations":  true,
 		"alertlevel": true,
-		"grants":     true,
+		//"grants":     true,
 		"clusters":   true,
 	}
 
@@ -111,13 +110,13 @@ func main() {
 		}
 
 		result, renderErr = nzcovid19cases.RenderLevels(levelInt, levelString, viewType)
-	case "grants":
-		gS, gR, err := nzcovid19cases.ScrapeGrants()
-		if err != nil {
-			abort(err, 6)
-		}
-
-		result, renderErr = nzcovid19cases.RenderGrants(gS, gR, viewType)
+	//case "grants":
+	//	gS, gR, err := nzcovid19cases.ScrapeGrants()
+	//	if err != nil {
+	//		abort(err, 6)
+	//	}
+	//
+	//	result, renderErr = nzcovid19cases.RenderGrants(gS, gR, viewType)
 	case "casestats":
 		caseStats, err := nzcovid19cases.ScrapeCaseStats()
 		if err != nil {
