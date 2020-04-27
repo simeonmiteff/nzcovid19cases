@@ -25,12 +25,12 @@ func ScrapeLevel() (int, string, error) {
 
 	doc := soup.HTMLParse(resp)
 
-	h3 := doc.Find("h3")
-	if h3.Error != nil {
+	h2 := doc.Find("h2", "id", "alertHeading")
+	if h2.Error != nil {
 		return 0, "", fmt.Errorf("could not find h3")
 	}
 
-	matches := re.FindStringSubmatch(h3.Text())
+	matches := re.FindStringSubmatch(h2.Text())
 	if len(matches) != NumLevelREMatches {
 		return 0, "", fmt.Errorf("expected two match elements")
 	}
