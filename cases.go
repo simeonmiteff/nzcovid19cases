@@ -30,8 +30,8 @@ type CaseStatsResponse struct {
 	ProbableCasesNew24h     int
 	RecoveredCasesTotal     int
 	RecoveredCasesNew24h    int
-	HospitalisedCasesTotal  int
-	HospitalisedCasesNew24h int
+	//HospitalisedCasesTotal  int
+	//HospitalisedCasesNew24h int
 	DeathCasesTotal         int
 	DeathCasesNew24h        int
 }
@@ -216,9 +216,14 @@ func ScrapeCaseStats() (CaseStatsResponse, error) {
 	tables := doc.FindAll("table")
 	stats := tables[0].FindAll("tr")
 
-	if len(stats) != 7 { //nolint:gomnd
-		return cS, fmt.Errorf("stats table has %v TR, not 7", len(stats))
+	if len(stats) != 8 { //nolint:gomnd
+		return cS, fmt.Errorf("stats table has %v TR, not 8", len(stats))
 	}
+
+	//for i, s := range stats {
+	//	a, b ,_ := parseStat(s)
+	//	fmt.Println(i,a,b)
+	//}
 
 	cS.ConfirmedCasesTotal, cS.ConfirmedCasesNew24h, err = parseStat(stats[1])
 	if err != nil {
@@ -230,12 +235,12 @@ func ScrapeCaseStats() (CaseStatsResponse, error) {
 		return cS, fmt.Errorf("problem parsing probable cases %w", err)
 	}
 
-	cS.HospitalisedCasesTotal, cS.HospitalisedCasesNew24h, err = parseStat(stats[4]) //parseStatHosp(stats[4])
-	if err != nil {
-		return cS, fmt.Errorf("problem parsing hospitalised cases %w", err)
-	}
+	//cS.HospitalisedCasesTotal, cS.HospitalisedCasesNew24h, err = parseStat(stats[4]) //parseStatHosp(stats[4])
+	//if err != nil {
+	//	return cS, fmt.Errorf("problem parsing hospitalised cases %w", err)
+	//}
 
-	cS.RecoveredCasesTotal, cS.RecoveredCasesNew24h, err = parseStat(stats[5])
+	cS.RecoveredCasesTotal, cS.RecoveredCasesNew24h, err = parseStat(stats[4])
 	if err != nil {
 		return cS, fmt.Errorf("problem parsing recovered cases %w", err)
 	}
