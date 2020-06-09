@@ -18,17 +18,19 @@ var re = regexp.MustCompile(`(?m)Level (\d)`) //nolint:gochecknoglobals
 const NumLevelREMatches = 2
 
 func ScrapeLevel() (int, string, error) {
-	resp, err := soup.Get("https://covid19.govt.nz/")
+	resp, err := soup.Get("https://uniteforrecovery.govt.nz/covid-19/covid-19-alert-system/alert-system-overview/")
 	if err != nil {
 		return 0, "", err
 	}
 
 	doc := soup.HTMLParse(resp)
 
-	h2 := doc.Find("h2", "id", "alertHeading")
-	if h2.Error != nil {
+	h2s := doc.FindAll("h2", "class", "content-element__title")
+	if len(h2s) < 1 {
 		return 0, "", fmt.Errorf("could not find h3")
 	}
+
+	h2 := h2s[0]
 
 	matches := re.FindStringSubmatch(h2.Text())
 	if len(matches) != NumLevelREMatches {
