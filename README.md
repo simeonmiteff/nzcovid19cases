@@ -1,5 +1,14 @@
 # NZ COVID-19 cases scraper
 
+# UPDATE: online scraper API retried
+
+After one too many arbitrary format changes on the MOH web site I've decided to stop updating the scraper and shut down the online API. There are alternative sources of both live statistics and case data (see section below).
+
+For me, this project was an object lesson in the futility of scraping hand-edited information. Open Data is necessary for the public to (feasibly) automatically process government-owned data. It turns out, in a crisis,
+Open Data is not a priority (indeed, as of 5 July 2020, in NZ the official government portal has [scant](https://catalogue.data.govt.nz/dataset?q=covid&sort=metadata_modified+desc) COVID-19 datasets).
+
+Sorry for the inconvenience, and thank you for your interest.
+
 # UPDATE: discontinuation of case detail scraping
 
 On April 12, the MOH stopped publishing all COVID-19 case details in a single table, and began reporting monthly cases.
@@ -43,10 +52,10 @@ This code is intended to scrape the following sources of COVID-19 data in New Ze
 
 Use this with caution - the NZ government may change their pages and break the scraper at any time.
 
-This code is used as the core of an API service I'm running: https://nzcovid19api.xerra.nz/
+~~This code is used as the core of an API service I'm running: https://nzcovid19api.xerra.nz/~~
 
-Courtesy of @gizmoguy, the metrics exported are scraped by a Prometheus server, and visualised on a 
-[Grafana dashboard](https://nzcovid19.grafana.sla.ac/d/r4XZV79Wz/new-zealand-covid-19-tracker?orgId=1):
+~~Courtesy of @gizmoguy, the metrics exported are scraped by a Prometheus server, and visualised on a 
+[Grafana dashboard](https://nzcovid19.grafana.sla.ac/d/r4XZV79Wz/new-zealand-covid-19-tracker?orgId=1):~~
 
 ![Screenshot of COVID-19 Grafana dashboard at https://nzcovid19.grafana.sla.ac/d/r4XZV79Wz/new-zealand-covid-19-tracker?orgId=1](doc/grafana_screenshot.png "Screenshot of COVID-19 Grafana dashboard")
 
